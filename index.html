@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Criativamente Digital — Produção de cursos online para especialistas</title>
+<meta name="description" content="A Criativamente Digital transforma o conhecimento de especialistas em cursos online profissionais: gravação, edição, estruturação e página de vendas.">
+<link rel="icon" type="image/png" href="public/images/logo-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="nav-logo">
+      <img src="public/images/logo-icon.png" alt="Criativamente Digital">
+      <span id="navBrandName">CRIATIVAMENTE<span class="dot">.</span></span>
+    </a>
+    <nav>
+      <ul class="nav-links" id="navLinks"></ul>
+    </nav>
+    <div class="nav-cta">
+      <a href="#planos" class="btn btn-ghost btn-sm">Planos</a>
+      <button class="btn btn-secondary btn-sm" id="navWhatsappBtn">Falar com a Criativamente</button>
+    </div>
+    <button class="nav-burger" id="navBurger" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu"></div>
+
+<main id="top">
+
+  <!-- ============================================================
+       HERO — editorial, tipografia em primeiro plano
+       ============================================================ -->
+  <section class="hero">
+    <div class="hero-watermark" aria-hidden="true">C</div>
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <p class="hero-eyebrow"><span class="rule"></span><span id="heroEyebrow"></span></p>
+          <h1 class="hero-headline" id="heroHeadline"></h1>
+          <p class="hero-sub" id="heroSub"></p>
+          <div class="hero-ctas">
+            <button class="btn btn-primary" id="heroCtaPrimary"></button>
+            <a href="#processo" class="btn btn-secondary" id="heroCtaSecondary"></a>
+          </div>
+        </div>
+        <div class="hero-meta" id="heroMeta"></div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="hero-strip">
+        <span id="heroStripLeft">CRIATIVAMENTEDIGITAL.COM.BR</span>
+        <span id="heroStripRight">PRODUÇÃO · EDIÇÃO · ESTRUTURAÇÃO</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PLATFORMS — letreiro horizontal
+       ============================================================ -->
+  <section class="platforms">
+    <div class="platforms-label-row">
+      <span id="platformsLabel"></span>
+      <span id="platformsCount"></span>
+    </div>
+    <div class="marquee">
+      <div class="marquee-track" id="marqueeTrack"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       POSITIONING
+       ============================================================ -->
+  <section class="section" id="posicionamento">
+    <div class="container">
+      <div class="positioning-inner reveal">
+        <div class="section-tag"><span class="tag-index" id="positioningIndex">01</span><span class="tag-label" id="positioningLabel"></span></div>
+        <h2 class="positioning-headline" id="positioningHeadline"></h2>
+        <p class="lede" id="positioningBody"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PROCESS
+       ============================================================ -->
+  <section class="section section-tight" id="processo">
+    <div class="container">
+      <div class="process-head reveal">
+        <div class="section-tag"><span class="tag-index" id="processIndex">02</span><span class="tag-label" id="processLabel"></span></div>
+        <h2 class="process-headline" id="processHeadline"></h2>
+      </div>
+      <div class="process-track" id="processTrack"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SERVICES
+       ============================================================ -->
+  <section class="section section-tight" id="servicos">
+    <div class="container">
+      <div class="services-head reveal">
+        <div class="section-tag"><span class="tag-index" id="servicesIndex">03</span><span class="tag-label" id="servicesLabel"></span></div>
+        <h2 class="services-headline" id="servicesHeadline"></h2>
+      </div>
+      <div class="services-list reveal" id="servicesGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PRICING
+       ============================================================ -->
+  <section class="section" id="planos">
+    <div class="container">
+      <div class="pricing-head reveal">
+        <div class="section-tag"><span class="tag-index" id="pricingIndex">04</span><span class="tag-label" id="pricingLabel"></span></div>
+        <h2 class="pricing-headline" id="pricingHeadline"></h2>
+      </div>
+      <div class="pricing-grid reveal" id="pricingGrid"></div>
+      <p class="pricing-payment-note" id="pricingPaymentNote"></p>
+      <div class="volume-note reveal" id="volumeNote"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOUNDER — pequeno, documental
+       ============================================================ -->
+  <section class="section" id="sobre">
+    <div class="container">
+      <div class="section-tag reveal"><span class="tag-index" id="founderIndex">05</span><span class="tag-label" id="founderLabel"></span></div>
+      <div class="founder-inner">
+        <div class="founder-photo-col reveal">
+          <div class="founder-photo-wrap">
+            <img id="founderPhoto" src="" alt="Edvan Silva, fundador da Criativamente Digital" loading="lazy">
+          </div>
+          <p class="founder-caption" id="founderCaption"></p>
+        </div>
+        <div class="founder-copy reveal">
+          <h2 class="founder-headline" id="founderHeadline"></h2>
+          <div class="founder-text" id="founderText"></div>
+          <p class="founder-signature" id="founderSignature"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CASES
+       ============================================================ -->
+  <section class="section section-tight" id="cases">
+    <div class="container">
+      <div class="cases-head reveal">
+        <div class="section-tag"><span class="tag-index" id="casesIndex">06</span><span class="tag-label" id="casesLabel"></span></div>
+        <h2 class="cases-headline" id="casesHeadline"></h2>
+      </div>
+      <div class="cases-list reveal" id="casesGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FAQ
+       ============================================================ -->
+  <section class="section section-tight" id="faq">
+    <div class="container">
+      <div class="faq-head reveal">
+        <div class="section-tag"><span class="tag-index" id="faqIndex">07</span><span class="tag-label" id="faqLabel"></span></div>
+        <h2 class="faq-headline" id="faqHeadline"></h2>
+      </div>
+      <div class="faq-list reveal" id="faqList"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       LEAD FORM
+       ============================================================ -->
+  <section class="section lead-form-section" id="contato">
+    <div class="container">
+      <div class="lead-form-wrap reveal">
+        <div class="lead-form-head">
+          <h2 class="lead-form-title" id="formTitle"></h2>
+          <p class="lead-form-subtitle" id="formSubtitle"></p>
+        </div>
+
+        <div class="selected-plan-chip" id="selectedPlanChip">
+          <span>Plano selecionado: <strong id="selectedPlanName"></strong></span>
+          <button type="button" id="clearPlanBtn">alterar</button>
+        </div>
+
+        <form id="leadForm">
+          <div class="form-grid">
+            <div class="form-field full">
+              <label for="fieldName">Nome</label>
+              <input type="text" id="fieldName" name="nome" required autocomplete="name">
+            </div>
+            <div class="form-field full">
+              <label for="fieldWhatsapp">WhatsApp</label>
+              <input
+                type="tel"
+                id="fieldWhatsapp"
+                name="whatsapp"
+                required
+                placeholder="(11) 99999-9999"
+                autocomplete="tel"
+                inputmode="numeric"
+                maxlength="16"
+                pattern="\(\d{2}\)\s\d{4,5}-\d{4}"
+                title="Digite um telefone válido com DDD, ex: (11) 99999-9999"
+              >
+            </div>
+            <div class="form-field">
+              <label for="fieldSegment">Qual é o seu tipo de negócio?</label>
+              <select id="fieldSegment" name="segmento" required></select>
+            </div>
+            <div class="form-field">
+              <label for="fieldProfession">Qual é a sua profissão ou atividade? (opcional)</label>
+              <input type="text" id="fieldProfession" name="profissao" placeholder="Ex.: Nail designer, psicóloga, consultor, confeiteira...">
+            </div>
+            <div class="form-field full" id="segmentOtherWrap" style="display:none;">
+              <label for="fieldSegmentOther">Qual segmento?</label>
+              <input type="text" id="fieldSegmentOther" name="segmentoOutro">
+            </div>
+            <div class="form-field full">
+              <label for="fieldTimeline">Quando pretende colocar o projeto em prática?</label>
+              <select id="fieldTimeline" name="prazo" required></select>
+            </div>
+            <div class="form-field full">
+              <label for="fieldMessage">Mensagem (opcional)</label>
+              <textarea id="fieldMessage" name="mensagem" placeholder="Conte um pouco sobre o seu projeto..."></textarea>
+            </div>
+          </div>
+
+          <!-- honeypot anti-spam: campo invisível; humanos nunca preenchem -->
+          <div class="form-honeypot" aria-hidden="true">
+            <label for="fieldWebsite">Não preencha este campo</label>
+            <input type="text" id="fieldWebsite" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <p class="form-error" id="formError" style="display:none;"></p>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary btn-block" id="formSubmitBtn"></button>
+          </div>
+          <p class="form-note" id="formNote">Seus dados ficam armazenados com segurança e não são compartilhados.</p>
+        </form>
+
+        <div class="form-success" id="formSuccess" style="display:none;">
+          <div class="form-success-mark" aria-hidden="true">✓</div>
+          <h3 class="form-success-title" id="formSuccessTitle"></h3>
+          <p class="form-success-message" id="formSuccessMessage"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FINAL CTA
+       ============================================================ -->
+  <section class="section final-cta">
+    <div class="container">
+      <div class="final-cta-inner">
+        <h2 class="final-cta-headline reveal" id="finalCtaHeadline"></h2>
+        <div class="final-cta-ctas reveal">
+          <button class="btn btn-primary" id="finalCtaPrimary"></button>
+          <button class="btn btn-secondary" id="finalCtaWhatsapp"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-logo" id="footerLogo"></div>
+      <div class="footer-tagline" id="footerTagline"></div>
+    </div>
+    <div class="footer-copy" id="footerCopy"></div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     PLAN MODAL
+     ============================================================ -->
+<div class="modal-overlay" id="planModal">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" aria-label="Fechar">✕</button>
+    <span class="modal-badge" id="modalBadge" style="display:none;"></span>
+    <h3 class="modal-name" id="modalName"></h3>
+    <div class="modal-price" id="modalPrice"></div>
+    <div class="modal-volume" id="modalVolume"></div>
+    <p class="modal-desc" id="modalDesc"></p>
+    <ul class="modal-benefits" id="modalBenefits"></ul>
+    <button class="btn btn-primary btn-block" id="modalCta"></button>
+  </div>
+</div>
+
+<script src="src/config.js"></script>
+<script src="src/script.js"></script>
+</body>
+</html>
