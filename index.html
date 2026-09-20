@@ -200,7 +200,7 @@
           <div class="form-grid">
             <div class="form-field full">
               <label for="fieldName">Nome</label>
-              <input type="text" id="fieldName" name="nome" required autocomplete="name">
+              <input type="text" id="fieldName" name="nome" required autocomplete="name" maxlength="120">
             </div>
             <div class="form-field full">
               <label for="fieldWhatsapp">WhatsApp</label>
@@ -223,11 +223,11 @@
             </div>
             <div class="form-field">
               <label for="fieldProfession">Qual é a sua profissão ou atividade? (opcional)</label>
-              <input type="text" id="fieldProfession" name="profissao" placeholder="Ex.: Nail designer, psicóloga, consultor, confeiteira...">
+              <input type="text" id="fieldProfession" name="profissao" maxlength="150" placeholder="Ex.: Nail designer, psicóloga, consultor, confeiteira...">
             </div>
             <div class="form-field full" id="segmentOtherWrap" style="display:none;">
               <label for="fieldSegmentOther">Qual segmento?</label>
-              <input type="text" id="fieldSegmentOther" name="segmentoOutro">
+              <input type="text" id="fieldSegmentOther" name="segmentoOutro" maxlength="100">
             </div>
             <div class="form-field full">
               <label for="fieldTimeline">Quando pretende colocar o projeto em prática?</label>
@@ -235,7 +235,7 @@
             </div>
             <div class="form-field full">
               <label for="fieldMessage">Mensagem (opcional)</label>
-              <textarea id="fieldMessage" name="mensagem" placeholder="Conte um pouco sobre o seu projeto..."></textarea>
+              <textarea id="fieldMessage" name="mensagem" maxlength="2000" placeholder="Conte um pouco sobre o seu projeto..."></textarea>
             </div>
           </div>
 
