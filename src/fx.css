@@ -1,0 +1,52 @@
+/* Efeitos visuais leves. Só animam transform/opacity (compositor), pausam fora da tela e respeitam prefers-reduced-motion. */
+
+/* Link para a outra página, em destaque no menu */
+.nav-links a.nav-highlight{display:inline-flex;align-items:center;gap:6px;padding:9px 16px;border:1px solid var(--accent);border-radius:999px;color:var(--accent);position:relative;overflow:hidden;white-space:nowrap;transition:background .3s var(--ease),color .3s var(--ease)}
+.nav-links a.nav-highlight::after{content:"↗";font-size:12px}
+.nav-links a.nav-highlight::before,.fx-shine::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(156,255,25,.32) 50%,transparent 70%);transform:translateX(-130%);animation:fxShine 4.5s ease-in-out infinite;pointer-events:none}
+.nav-links a.nav-highlight:hover{background:var(--accent);color:var(--accent-ink)}
+.mobile-menu a.nav-highlight{color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:14px 22px;align-self:flex-start;font-size:20px;margin-top:8px}
+.mobile-menu a.nav-highlight::after{content:" ↗"}
+.fx-shine{position:relative;overflow:hidden}
+@keyframes fxShine{0%,55%{transform:translateX(-130%)}100%{transform:translateX(130%)}}
+
+/* Hero: raios de luz + gradiente animado */
+.fx-hero{position:relative;isolation:isolate;contain:paint}
+.fx-hero .container{position:relative;z-index:1}
+.fx-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.fx-blob{position:absolute;border-radius:50%;will-change:transform;animation:fxDrift var(--dur,22s) ease-in-out infinite alternate}
+.fx-blob.b1{width:70vmax;height:70vmax;left:-20vmax;top:-30vmax;background:radial-gradient(circle,rgba(156,255,25,.16),transparent 62%);--dur:24s}
+.fx-blob.b2{width:60vmax;height:60vmax;right:-25vmax;top:-10vmax;background:radial-gradient(circle,rgba(18,133,107,.28),transparent 62%);--dur:28s;animation-delay:-8s}
+.fx-blob.b3{width:50vmax;height:50vmax;left:20vmax;bottom:-35vmax;background:radial-gradient(circle,rgba(156,255,25,.10),transparent 62%);--dur:32s;animation-delay:-14s}
+@keyframes fxDrift{from{transform:translate3d(-4vmax,-2vmax,0) scale(1)}to{transform:translate3d(6vmax,4vmax,0) scale(1.12)}}
+.fx-rays{position:absolute;left:0;right:0;top:0;height:100%}
+.fx-ray{position:absolute;top:-12%;left:50%;width:150px;height:118%;margin-left:-75px;transform-origin:50% 0;transform:rotate(var(--a));opacity:.4;will-change:transform,opacity;
+  background:linear-gradient(to bottom,rgba(200,255,120,.34),rgba(156,255,25,.12) 45%,transparent 80%);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 50%,transparent);mask-image:linear-gradient(90deg,transparent,#000 50%,transparent);
+  animation:fxRay var(--d,10s) ease-in-out infinite alternate;animation-delay:var(--l,0s)}
+@keyframes fxRay{from{transform:rotate(calc(var(--a) - 5deg));opacity:.15}to{transform:rotate(calc(var(--a) + 5deg));opacity:.6}}
+.fx-hero .hero-watermark{z-index:0}
+
+/* Brilho correndo no destaque do título (só telas grandes) */
+@media (min-width:768px){
+  .fx-shimmer{background:linear-gradient(100deg,var(--accent) 0%,var(--accent) 35%,#eaffb8 50%,var(--accent) 65%,var(--accent) 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:fxShimmer 7s linear infinite}
+  @keyframes fxShimmer{from{background-position:120% 0}to{background-position:-120% 0}}
+}
+
+/* Entrada suave ao rolar (só com JS ativo) */
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.js .rv.in{opacity:1;transform:none}
+
+/* Mobile: menos camadas, menos movimento */
+@media (max-width:700px){
+  .fx-ray{width:110px;margin-left:-55px}
+  .fx-ray:nth-child(n+4){display:none}
+  .fx-blob.b3{display:none}
+  .fx-blob.b1,.fx-blob.b2{width:120vmax;height:120vmax}
+}
+.fx-paused *,.fx-paused *::before,.fx-paused *::after{animation-play-state:paused !important}
+@media (prefers-reduced-motion:reduce){
+  .fx-blob,.fx-ray,.fx-shimmer,.nav-highlight::before,.fx-shine::after{animation:none !important}
+  .fx-ray{opacity:.3}
+  .js .rv{opacity:1;transform:none;transition:none}
+}

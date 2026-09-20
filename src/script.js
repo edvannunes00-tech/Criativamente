@@ -49,8 +49,9 @@
     const navLinks = document.getElementById("navLinks");
     const mobileMenu = document.getElementById("mobileMenu");
     cfg.nav.links.forEach((link) => {
-      navLinks.appendChild(el("li", {}, [el("a", { href: link.href, text: link.label })]));
-      mobileMenu.appendChild(el("a", { href: link.href, text: link.label }));
+      const cls = link.highlight ? "nav-highlight" : "";
+      navLinks.appendChild(el("li", {}, [el("a", { href: link.href, text: link.label, class: cls })]));
+      mobileMenu.appendChild(el("a", { href: link.href, text: link.label, class: cls }));
     });
     const mobileBtn = el("button", { class: "btn btn-primary", text: cfg.contact.whatsappCtaLabel });
     mobileBtn.addEventListener("click", () => openWhatsapp(genericWhatsappMessage()));
@@ -196,39 +197,14 @@
     document.getElementById("pricingHeadline").textContent = cfg.pricing.headline;
     document.getElementById("pricingPaymentNote").textContent = cfg.pricing.paymentNote;
 
-    const grid = document.getElementById("pricingGrid");
-    cfg.pricing.plans.forEach((plan) => {
-      const cardChildren = [];
-
-      if (plan.badge) {
-        cardChildren.push(el("span", { class: "price-badge", text: plan.badge }));
-      }
-      cardChildren.push(el("div", { class: "price-volume", text: plan.volume }));
-      cardChildren.push(el("div", { class: "price-name", text: plan.name }));
-      cardChildren.push(el("div", { class: "price-value", text: plan.price }));
-      cardChildren.push(el("div", { class: "price-positioning", text: plan.positioning }));
-      cardChildren.push(buildBenefitsList(plan.benefits));
-
-      const actions = el("div", { class: "price-actions" });
-      const primaryBtn = el("button", {
-        class: "btn " + (plan.highlighted ? "btn-primary" : "btn-secondary") + " btn-block",
-        text: plan.ctaLabel,
-      });
-      primaryBtn.addEventListener("click", () => selectPlanAndGoToForm(plan.id));
-
-      const secondaryBtn = el("button", { class: "btn btn-ghost btn-block", text: "Saiba mais" });
-      secondaryBtn.addEventListener("click", () => openPlanModal(plan.id));
-
-      actions.appendChild(primaryBtn);
-      actions.appendChild(secondaryBtn);
-      cardChildren.push(actions);
-
-      const card = el(
-        "div",
-        { class: "price-card" + (plan.highlighted ? " highlighted" : "") },
-        cardChildren
-      );
-      grid.appendChild(card);
+    renderPlanMatrix(document.getElementById("pricingGrid"), {
+      caption: "Comparação dos planos",
+      columns: cfg.pricing.plans.map((p) => ({
+        id: p.id, name: p.name, price: p.price, badge: p.badge, highlighted: p.highlighted, ctaLabel: p.ctaLabel,
+      })),
+      rows: cfg.pricing.matrix,
+      onPick: selectPlanAndGoToForm,
+      onMore: openPlanModal,
     });
 
     const noteBox = document.getElementById("volumeNote");

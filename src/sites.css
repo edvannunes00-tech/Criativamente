@@ -9,3 +9,8 @@
 .form-consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--gray-1);margin:4px 0 20px}
 .form-consent input{margin-top:3px;accent-color:var(--accent)}
 @media (max-width:980px){.pricing-grid.two{grid-template-columns:1fr}}
+
+/* Fundo suave atrás do formulário (estático, sem custo de animação) */
+.lead-form-section{background:radial-gradient(60% 55% at 50% 0%,rgba(156,255,25,.08),transparent 70%),var(--black)}
+.pricing-group .pm-wrap{border:1px solid var(--line);border-radius:22px;padding:28px 24px 8px}
+@media (max-width:700px){.pricing-group .pm-wrap{padding:20px 10px 4px;border-radius:16px}}

@@ -1,0 +1,46 @@
+/* Tabela comparativa de planos */
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.pm-wrap{width:100%}
+.pm{width:100%;border-collapse:collapse;table-layout:fixed}
+.pm th,.pm td{padding:0}
+.pm-corner{width:34%}
+.pm-col{padding:0 8px 20px;vertical-align:bottom;text-align:center;font-weight:400}
+.pm-badge-slot{height:28px;display:flex;align-items:flex-end;justify-content:center;margin-bottom:8px}
+.pm-badge{font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--white);color:var(--black);border-radius:999px;padding:5px 12px;white-space:nowrap}
+.pm-pill{width:100%;border:1px solid var(--line-strong);background:transparent;color:var(--white);border-radius:999px;padding:15px 10px;font:700 12px/1.1 var(--font-body);letter-spacing:.05em;text-transform:uppercase;transition:transform .3s var(--ease),border-color .3s var(--ease),background .3s var(--ease)}
+.pm-pill:hover{transform:translateY(-2px);border-color:var(--white)}
+.is-hl .pm-pill{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.is-hl .pm-pill:hover{background:#b3ff4d}
+.pm-price{font-family:var(--font-display);font-weight:800;font-size:clamp(20px,2.4vw,28px);letter-spacing:-.02em;margin-top:18px;color:var(--white)}
+.pm-sub{font-family:var(--font-mono);font-size:11px;color:var(--gray-2);margin-top:4px;min-height:14px}
+.pm tbody th,.pm tbody td{border-top:1px solid var(--line);padding:18px 8px;font-size:14px;line-height:1.4;color:var(--gray-1)}
+.pm tbody th{text-align:left;font-weight:400;padding-left:0;padding-right:18px}
+.pm tbody td{text-align:center}
+.pm .is-hl{background:rgba(156,255,25,.06);box-shadow:inset 1px 0 rgba(156,255,25,.22),inset -1px 0 rgba(156,255,25,.22)}
+.pm thead .is-hl{border-radius:18px 18px 0 0;box-shadow:inset 1px 0 rgba(156,255,25,.22),inset -1px 0 rgba(156,255,25,.22),inset 0 1px rgba(156,255,25,.22)}
+.pm tfoot .is-hl{border-radius:0 0 18px 18px}
+.pm-check{display:inline-flex;color:var(--accent)}
+.pm-dash{display:inline-block;width:14px;height:2px;border-radius:2px;background:var(--gray-3);vertical-align:middle}
+.pm-text{font-family:var(--font-mono);font-size:12px;color:var(--white)}
+.pm tfoot td{padding:20px 8px 18px;text-align:center;border-top:1px solid var(--line)}
+.pm-cta,.pm-more{display:block;width:100%;font-family:var(--font-body);cursor:pointer}
+.pm-cta{border:1px solid var(--line-strong);background:transparent;color:var(--white);border-radius:999px;padding:12px 8px;font-size:12px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;transition:border-color .3s var(--ease),background .3s var(--ease)}
+.pm-cta:hover{border-color:var(--white)}
+.is-hl .pm-cta{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.pm-more{margin-top:10px;background:none;border:none;color:var(--gray-2);font-family:var(--font-mono);font-size:11px;text-decoration:underline;text-transform:uppercase;letter-spacing:.04em}
+.pm-more:hover{color:var(--white)}
+@media (max-width:700px){
+  .pm-corner{width:32%}
+  .pm-col{padding:0 3px 14px}
+  .pm-badge{font-size:8px;padding:4px 7px;letter-spacing:.04em}
+  .pm-pill{padding:11px 2px;font-size:9.5px;letter-spacing:.02em}
+  .pm-price{font-size:14px;margin-top:12px;letter-spacing:-.03em}
+  .pm-sub{font-size:9.5px}
+  .pm tbody th,.pm tbody td{padding:14px 3px;font-size:12px}
+  .pm tbody th{padding-right:8px}
+  .pm-text{font-size:10.5px}
+  .pm-check svg{width:18px;height:18px}
+  .pm tfoot td{padding:14px 3px}
+  .pm-cta{font-size:9.5px;padding:10px 2px;letter-spacing:.01em}
+  .pm-more{font-size:9.5px}
+}

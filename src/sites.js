@@ -20,7 +20,39 @@
     if (!was) item.classList.add("open");
   }));
 
-  document.querySelectorAll(".js-pick").forEach((a) => a.addEventListener("click", () => { $("fInteresse").value = a.dataset.interesse; }));
+  // ---- tabelas comparativas de planos
+  const ROWS = [
+    { label: "Hospedagem e manutenção", values: { g: "Criativamente", p: "Por sua conta" } },
+    { label: "Titular do domínio e dos acessos", values: { g: "Criativamente", p: "Você" } },
+    { label: "Renovação anual do domínio", values: { g: "Inclusa na mensalidade", p: "Por sua conta" } },
+    { label: "Ajustes simples sem limite (uso razoável)", values: { g: true, p: false } },
+    { label: "Configuração acompanhada por nós", values: { g: false, p: true } },
+  ];
+  const pick = (interesse) => {
+    $("fInteresse").value = interesse;
+    $("contato").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+  };
+  const build = (mountId, nome, valores, precos, ctaTxt) => renderPlanMatrix($(mountId), {
+    caption: "Comparação de planos — " + nome,
+    columns: [
+      { id: "g", name: "Gerenciado", price: precos[0], sub: "+ R$ 89,90/mês", ctaLabel: ctaTxt, highlighted: true, badge: "Com manutenção" },
+      { id: "p", name: "Próprio", price: precos[1], sub: "pagamento único", ctaLabel: ctaTxt },
+    ],
+    rows: ROWS,
+    onPick: (id) => pick(valores[id]),
+  });
+  build("pmLanding", "Landing Page", { g: "Landing Page (Gerenciado)", p: "Landing Page (Próprio)" }, ["R$ 890", "R$ 1.500"], "Quero esta →");
+  build("pmSite", "Site Institucional", { g: "Site Institucional (Gerenciado)", p: "Site Institucional (Próprio)" }, ["R$ 2.000", "R$ 3.500"], "Quero este →");
+
+  // ---- efeitos: entrada suave ao rolar e pausa das animações fora da tela
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if ("IntersectionObserver" in window && !reduce) {
+    document.documentElement.classList.add("js");
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    document.querySelectorAll(".process-track, .services-list, .pricing-group, .faq-list, .lead-form-wrap, .process-head, .services-head, .pricing-head, .faq-head").forEach((n) => { n.classList.add("rv"); io.observe(n); });
+    const hero = $("fxHero");
+    new IntersectionObserver((es) => es.forEach((e) => hero.classList.toggle("fx-paused", !e.isIntersecting))).observe(hero);
+  }
 
   $("fWa").addEventListener("input", (e) => {
     const d = e.target.value.replace(/\D/g, "").slice(0, 11);
