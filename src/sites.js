@@ -42,7 +42,7 @@
     onPick: (id) => pick(valores[id]),
   });
   build("pmLanding", "Landing Page", { g: "Landing Page (Gerenciado)", p: "Landing Page (Próprio)" }, ["R$ 890", "R$ 1.500"], "Quero esta →");
-  build("pmSite", "Site Institucional", { g: "Site Institucional (Gerenciado)", p: "Site Institucional (Próprio)" }, ["R$ 2.000", "R$ 3.500"], "Quero este →");
+  build("pmSite", "Site Institucional", { g: "Site Institucional (Gerenciado)", p: "Site Institucional (Próprio)" }, ["R$ 1.990", "R$ 3.490"], "Quero este →");
 
   // ---- efeitos: entrada suave ao rolar e pausa das animações fora da tela
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
