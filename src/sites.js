@@ -35,7 +35,7 @@
   const build = (mountId, nome, valores, precos, ctaTxt) => renderPlanMatrix($(mountId), {
     caption: "Comparação de planos — " + nome,
     columns: [
-      { id: "g", name: "Gerenciado", price: precos[0], sub: "+ R$ 89,90/mês", ctaLabel: ctaTxt, highlighted: true, badge: "Com manutenção" },
+      { id: "g", name: "Gerenciado", price: precos[0], sub: "+ R$ 59,90/mês", ctaLabel: ctaTxt, highlighted: true, badge: "Com manutenção" },
       { id: "p", name: "Próprio", price: precos[1], sub: "pagamento único", ctaLabel: ctaTxt },
     ],
     rows: ROWS,
