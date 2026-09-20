@@ -59,6 +59,7 @@ const SITE_CONFIG = {
       { label: "Cases", href: "#cases" },
       { label: "Sobre", href: "#sobre" },
       { label: "FAQ", href: "#faq" },
+      { label: "Criação de sites", href: "/sites" },
     ],
   },
 

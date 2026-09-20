@@ -1128,3 +1128,16 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Menu entre páginas: com o link extra, o menu vira hambúrguer entre 901px e 1060px
+   e, acima disso, os links ficam em uma linha só com espaçamento reduzido. */
+.nav-links a { white-space: nowrap; }
+@media (min-width: 1061px) and (max-width: 1180px) {
+  .nav-links { gap: 22px; }
+  .nav-cta { gap: 12px; }
+}
+@media (min-width: 901px) and (max-width: 1060px) {
+  .nav-links, .nav-cta { display: none; }
+  .nav-burger { display: flex; }
+  .mobile-menu { display: flex; }
+}

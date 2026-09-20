@@ -1,0 +1,11 @@
+/* Página de sites — complementos mínimos sobre styles.css (nada de redefinir o design system) */
+.preview-banner{position:sticky;top:0;z-index:300;background:var(--accent);color:var(--accent-ink);font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-align:center;padding:8px 16px}
+.pricing-group{margin-bottom:56px}
+.pricing-group-title{font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gray-1);margin:0 0 8px}
+.pricing-group-desc{font-size:15px;max-width:60ch;margin-bottom:24px}
+.pricing-grid.two{grid-template-columns:repeat(2,1fr)}
+.price-mode{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.1em;color:var(--gray-2);margin-bottom:14px;text-transform:uppercase}
+.price-recurring{font-family:var(--font-mono);font-size:12px;color:var(--gray-2);margin:-2px 0 24px}
+.form-consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--gray-1);margin:4px 0 20px}
+.form-consent input{margin-top:3px;accent-color:var(--accent)}
+@media (max-width:980px){.pricing-grid.two{grid-template-columns:1fr}}
