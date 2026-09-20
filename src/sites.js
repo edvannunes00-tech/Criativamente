@@ -23,7 +23,7 @@
   // ---- tabelas comparativas de planos
   const ROWS = [
     { label: "Hospedagem e manutenção", values: { g: "Criativamente", p: "Por sua conta" } },
-    { label: "Titular do domínio e dos acessos", values: { g: "Criativamente", p: "Você" } },
+    { label: "Registro do domínio e acessos", values: { g: "Criativamente", p: "Você" } },
     { label: "Renovação anual do domínio", values: { g: "Inclusa na mensalidade", p: "Por sua conta" } },
     { label: "Ajustes simples sem limite (uso razoável)", values: { g: true, p: false } },
     { label: "Configuração acompanhada por nós", values: { g: false, p: true } },

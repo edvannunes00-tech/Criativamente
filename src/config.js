@@ -70,7 +70,7 @@ const SITE_CONFIG = {
     eyebrow: "PRODUÇÃO DE CURSOS ONLINE",
     headlineLines: [
       { text: "Você ensina.", accent: false },
-      { text: "A Criativamente", accent: true },
+      { text: "A\u00A0Criativamente", accent: true },
       { text: "transforma.", accent: false },
     ],
     supportingText:

@@ -1141,3 +1141,8 @@ footer {
   .nav-burger { display: flex; }
   .mobile-menu { display: flex; }
 }
+
+/* Mobile: "A Criativamente" cabe em uma linha (sem o "A" solto) na LP 01 */
+@media (max-width: 480px) {
+  main#top .hero-headline { font-size: clamp(33px, 10.4vw, 48px); }
+}
