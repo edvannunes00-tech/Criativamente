@@ -11,4 +11,3 @@ document.getElementById('mbtn').addEventListener('click',function(){
  modal.addEventListener('click',function(e){if(e.target===modal)close()});
  document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
 })();
-window.addEventListener('load',function(){setTimeout(function(){document.title='H:'+document.documentElement.scrollHeight},1500)});
