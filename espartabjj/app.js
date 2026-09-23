@@ -33,15 +33,6 @@
  h+='<section class="hero'+(dk?' hero-dk':'')+'" style="padding-top:0">'+(dk&&(L.watermark||L.logo)?'<img class="hero-mark" src="'+(L.watermark||L.logo)+'" alt="">':'')+'<div class="w rv-hero"><div><div class="kick">'+esc(L.kicker)+'</div><h1>'+esc(L.h1)+'</h1><p class="lead">'+esc(L.sub)+'</p><div class="ctas"><a class="btn b1" href="'+wa+'">'+esc(L.ctaWhats||'Falar pelo WhatsApp')+'</a><a class="btn b2" href="#galeria">'+esc(cta2)+'</a></div></div><div><div class="ph"'+(L.fotos.hero&&L.fotos.hero.ratio?' style="aspect-ratio:'+L.fotos.hero.ratio+'"':'')+'>'+(L.fotos.hero&&L.fotos.hero.src?'<img src="'+L.fotos.hero.src+'" style="object-position:'+(L.fotos.hero.pos||'50% 50%')+';object-fit:'+(L.fotos.hero.fit||'cover')+'" alt="">':'<div class="ph-empty">Foto do espaço/equipe<br>(a inserir)</div>')+'</div>'+(L.fotos.hero&&L.fotos.hero.legenda?'<div class="cap">'+esc(L.fotos.hero.legenda)+'</div>':'')+'</div></div></section>';
  h+='<div class="info"><div class="w"><div class="c"><small>Localização</small><b>'+esc(L.localizacao)+'</b></div><div class="c"><small>WhatsApp</small><b>'+esc(L.whatsapp.display)+'</b></div><div class="c"><small>Avaliações no Google</small><b><span class="stars">'+stars+'</span> '+esc(N.valor)+' · '+esc(N.qtd)+' avaliações</b></div></div></div>';
  h+='<section id="servicos"><div class="w"><div class="lab">'+esc(lab.servicos||'Serviços')+'</div><h2>'+esc(L.tituloServicos||'O que fazemos')+'</h2><div class="svc">'+L.servicos.map(function(s,i){return '<div class="row"><i>0'+(i+1)+'</i><h3>'+esc(s.t)+'</h3><p>'+esc(s.d||'')+'</p><a class="btn b2" href="'+wa+'">'+esc(cta)+'</a></div>'}).join('')+'</div></div></section>';
- if(L.valores){var temMV=L.valores.missao||L.valores.visao;h+='<section id="valores"><div class="w"><div class="lab">Nossos valores</div><h2>'+esc(L.valores.titulo||'Missão, visão e valores')+'</h2>'+
-  (temMV?'<div class="val-grid">'+
-   (L.valores.missao?'<div class="val-card"><h3>Missão</h3><p>'+esc(L.valores.missao)+'</p></div>':'')+
-   (L.valores.visao?'<div class="val-card"><h3>Visão</h3><p>'+esc(L.valores.visao)+'</p></div>':'')+
-   '</div>':'')+
-  (L.valores.pilares&&L.valores.pilares.length?'<div class="pilar-grid">'+L.valores.pilares.map(function(p,i){return '<div class="pilar-card" data-n="0'+(i+1)+'"><b>'+esc(p)+'</b><span></span></div>'}).join('')+'</div>':'')+
-  (L.valores.lista&&L.valores.lista.length?'<div class="val-tags">'+L.valores.lista.map(function(v){return '<span>'+esc(v)+'</span>'}).join('')+'</div>':'')+
-  (L.valores.regras&&L.valores.regras.length?'<div class="val-regras"><h3>Regras do tatame</h3><ol>'+L.valores.regras.map(function(r){return '<li>'+esc(r)+'</li>'}).join('')+'</ol></div>':'')+
-  '</div></section>';}
  if(L.faixas&&L.faixas.length){h+='<section id="faixas"><div class="w"><div class="lab">Graduação</div><h2>Sua evolução no Jiu-Jitsu</h2><div class="belt-row">'+
   L.faixas.map(function(f,i){return '<div class="belt-it'+(i===L.faixas.length-1?' final':'')+'"><span class="belt-n">0'+(i+1)+'</span><span class="belt-bar" style="background:'+f.cor+'"></span><small>'+esc(f.nome)+'</small></div>'}).join('')+
   '</div></div></section>';}
@@ -57,6 +48,22 @@
   '</div></div></section>';}
  if(L.sobre){var so=L.sobre;
   h+='<section id="sobre"><div class="w"><div class="lab">Sobre</div><h2>'+esc(so.titulo||'Quem está à frente')+'</h2><div class="about-card"><div class="about-ph"'+(so.foto&&so.foto.ratio?' style="aspect-ratio:'+so.foto.ratio+'"':'')+'>'+(so.foto&&so.foto.src?'<img src="'+so.foto.src+'" style="object-position:'+(so.foto.pos||'50% 50%')+';object-fit:'+(so.foto.fit||'cover')+'" alt="">':'')+'</div><div><b>'+esc(so.nome)+'</b><div class="cargo">'+esc(so.cargo||'')+'</div><p>'+esc(so.texto)+'</p></div></div></div></section>';}
+ if(L.mvv){var mv=L.mvv;
+  var vicon='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/><circle cx="12" cy="12" r="3"/></svg>';
+  var micon='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>';
+  var vicon2='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>';
+  h+='<section id="valores"><div class="w">'+
+   (mv.topo?'<div class="mvv-banner"><img src="'+mv.topo+'" alt="Missão, visão e valores"></div>':'')+
+   '<div class="mvv-row">'+
+    (mv.visao?'<div class="mvv-col"><h3>'+vicon+' Nossa Visão</h3><p>'+esc(mv.visao)+'</p></div>':'')+
+    (mv.missao?'<div class="mvv-col"><h3>'+micon+' Nossa Missão</h3><p>'+esc(mv.missao)+'</p></div>':'')+
+   '</div>'+
+   (mv.valoresLista&&mv.valoresLista.length?'<div class="mvv-vlab">Nossos Valores</div><div class="mvv-vgrid">'+mv.valoresLista.map(function(v){return '<div class="mvv-v"><span class="ic">'+vicon2+'</span><small>'+esc(v)+'</small></div>'}).join('')+'</div>':'')+
+   (mv.pilares&&mv.pilares.length?'<div class="mvv-pilares">'+mv.pilares.map(function(p){return '<div class="mvv-pc">'+(p.img?'<img src="'+p.img+'" alt="">':'')+'<div class="tx"><b>'+esc(p.nome)+'</b><span>'+esc(p.texto||'')+'</span></div></div>'}).join('')+'</div>':'')+
+   (mv.regras&&mv.regras.length?'<div class="mvv-regras"><div class="side">柔術</div><div class="body"><h3>Regras do Tatame</h3><ol>'+mv.regras.map(function(r){return '<li>'+esc(r)+'</li>'}).join('')+'</ol></div></div>':'')+
+  '</div></section>';}
+ if(L.mestres){var ms=L.mestres;
+  h+='<section id="mestres"><div class="w"><div class="lab">'+esc(ms.lab||'Tradição')+'</div><h2>'+esc(ms.titulo||'Mestres do Jiu-Jitsu')+'</h2>'+(ms.img?'<div class="mestres-ph"><img src="'+ms.img+'" alt="Mestres do Jiu-Jitsu"></div>':'')+(ms.legenda?'<p class="mestres-cap">'+esc(ms.legenda)+'</p>':'')+'</div></section>';}
  h+='<div class="ct" id="contato"><div class="w"><div><div class="lab" style="opacity:.8">Contato</div><h2>'+esc(L.contato.titulo)+'</h2><p>'+esc(L.contato.texto)+'</p><a class="btn b1" href="'+wa+'">'+esc(L.ctaWhats||'Falar pelo WhatsApp')+'</a></div><div><div class="l"><small>Endereço</small><span>'+esc(L.endereco[0])+'<br>'+esc(L.endereco[1])+'</span></div><div class="l"><small>WhatsApp</small><span>'+esc(L.whatsapp.display)+'</span></div>'+(L.horarios?'<div class="l"><small>Horário</small><span>'+esc(L.horarios)+'</span></div>':'')+(L.mapa?'<div class="ct-map" style="display:flex;align-items:center;justify-content:center;background:var(--alt)"><a class="btn b2" href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(L.endereco.join(', '))+'" target="_blank" rel="noopener">Ver no Google Maps</a></div>':'')+'</div></div></div></main>';
  h+='<footer><div class="w"><span>© '+esc(L.nome)+'</span><span>Prévia ilustrativa · criada por criativamentedigital.com.br</span></div></footer><a class="wa" href="'+wa+'" aria-label="WhatsApp">'+WAI+'</a>';
  document.getElementById('app').innerHTML=h;document.documentElement.style.setProperty('--gn',(L.fotos.galeria&&L.fotos.galeria.length)||4);

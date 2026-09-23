@@ -31,9 +31,26 @@ window.LEAD={
   'Uma grande família, tenho a honra de ter meu filho fazendo parte dessa equipe.',
   'Local perfeito para lutar jiu-jitsu e aprender a se defender.'
  ],
- valores:{ // confirmado pela própria foto de marca da unidade (f2.jpg); só os pilares, sem inventar missão/visão que não vi aqui
-  titulo:'Nossos pilares',
-  pilares:['Honra','Disciplina','Expansão']
+ mestres:{ // foto de referência fornecida pelo Edvan (2026-09-23) — sem inventar nome dos 3 primeiros, só Vagner é confirmado
+  lab:'Tradição', titulo:'Mestres do Jiu-Jitsu',
+  img:'img/mestres.webp',
+  legenda:'Vagner Miguel dá continuidade a uma tradição que atravessa gerações do Jiu-Jitsu.'
+ },
+ mvv:{ // texto tirado direto das placas da parede da unidade (fotos fornecidas pelo Edvan, 2026-09-23)
+  topo:'img/mvv-topo.webp',
+  visao:'Sermos a fonte de inspiração, geradora de conhecimentos, referência e modelo de saúde e bem estar, agregando valor às necessidades da sociedade.',
+  missao:'Priorizar pessoas acima de tudo, facilitar a vida das famílias, ensinar atividades que proporcionem hábitos benéficos à saúde e ao bem estar, proporcionar qualidade de vida aos nossos alunos como se a nossa academia e filiais fossem uma extensão do seu próprio lar.',
+  valoresLista:['Humildade','Alegria','Honestidade','Profissionalismo','Comprometimento','Ética','Respeito','Atenção','Amizade','Confiança','Espírito de Grupo'],
+  pilares:[
+   {nome:'Honra',img:'img/pilar-honra.webp',texto:'Respeito em tudo que fazemos.'},
+   {nome:'Disciplina',img:'img/pilar-disciplina.webp',texto:'Fazer o que precisa ser feito, mesmo quando não é fácil.'},
+   {nome:'Expansão',img:'img/pilar-expansao.webp',texto:'Evoluir dentro e fora do tatame.'}
+  ],
+  regras:[
+   'Seja pontual','Mantenha seu kimono limpo e sem rasgos','Cumprimente o professor e os companheiros de treino',
+   'Não converse durante a aula','Não reclame de cansaço, isso só piora','Abra a cabeça para aprender',
+   'Treine suas deficiências','Não resista ao golpe por vaidade','Se perdeu, tente de novo','Se ganhou, respeite.'
+  ]
  },
  faixas:[ // cores de referência da identidade (Edvan, 2026-09-23); ilustrativo, não é graduação de ninguém específico
   {nome:'Branca',cor:'#F2F2F2'},{nome:'Azul',cor:'#164A8A'},{nome:'Roxa',cor:'#5B2A86'},{nome:'Marrom',cor:'#633B24'},{nome:'Preta',cor:'#050505'}
