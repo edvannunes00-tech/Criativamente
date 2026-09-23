@@ -29,10 +29,9 @@ window.LEAD={
  ],
  fotos:{
   hero:{src:'img/f6.webp',pos:'50% 50%',fit:'contain',ratio:'1506/1072',legenda:'Equipe da Esparta Jiu-Jitsu Team, com os professores Vagner Miguel e Pamella'},
-  galeria:[
+  galeria:[ // f2 (placa) e f6 (já é a foto do herói) tiradas — redundantes
    {src:'img/f3.webp',pos:'50% 55%'},{src:'img/f4.webp',pos:'20% 30%'},
-   {src:'img/f1.webp',pos:'50% 40%'},{src:'img/f5.webp',pos:'50% 35%'},
-   {src:'img/f2.webp',pos:'50% 40%'},{src:'img/f6.webp',pos:'50% 25%'}
+   {src:'img/f1.webp',pos:'50% 40%'},{src:'img/f5.webp',pos:'50% 35%'}
   ]
   // f1.jpg e f5.jpg NÃO usadas: têm crianças no grupo (plano aberto, mas mesmo assim seguimos a regra de não usar).
  },
