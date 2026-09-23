@@ -13,17 +13,27 @@ window.LEAD={
  cta:'Matricule-se', cta2:'Ver a academia', ctaWhats:'Falar pelo WhatsApp',
  whatsapp:{numero:'5511947182912',display:'(11) 94718-2912',msg:'Olá! Vim pelo site e gostaria de fazer uma aula experimental.'},
  nota:{valor:'5,0',qtd:'148'},
- localizacao:'Jardim Ipanema · São Paulo',
+ localizacao:'Matriz · São Paulo',
  rotulos:{servicos:'Modalidades',galeria:'A Academia'},
  tituloServicos:'Modalidades', tituloGaleria:'Conheça a academia',
  servicos:[
   {t:'Jiu-Jitsu',d:'Turmas infantil e adulto.'},
-  {t:'Defesa Pessoal',d:'Técnicas práticas para o dia a dia.'},
-  {t:'Musculação',d:'Treino complementar de musculação.'}
+  {t:'Defesa Pessoal',d:'Técnicas práticas para o dia a dia.'}
+ ], // Musculação removida (2026-09-23) — não é modalidade desta unidade
+ planos:[ // valores passados pelo Edvan (2026-09-23); Defesa Pessoal e Feminino sem valor confirmado ainda
+  {nome:'Kids',de:'170',preco:'150',periodo:'/mês',desc:'Jiu-Jitsu infantil.'},
+  {nome:'Adulto',preco:'170',periodo:'/mês',desc:'Jiu-Jitsu e defesa pessoal.'},
+  {nome:'Defesa Pessoal',precoTxt:'Consultar',desc:'Técnicas práticas para o dia a dia.'},
+  {nome:'BJJ Feminino',precoTxt:'Consultar',desc:'Jiu-Jitsu só para mulheres.',cor:'rosa'},
+  {nome:'Personal',precoTxt:'Consultar',desc:'Treino individual.'}
  ],
  fotos:{
   hero:{src:'img/f6.webp',pos:'50% 50%',fit:'contain',ratio:'1506/1072',legenda:'Equipe da Esparta Jiu-Jitsu Team, com os professores Vagner Miguel e Pamella'},
-  galeria:[{src:'img/f3.webp',pos:'50% 55%'},{src:'img/f2.webp',pos:'50% 40%'},{src:'img/f4.webp',pos:'20% 30%'}]
+  galeria:[
+   {src:'img/f3.webp',pos:'50% 55%'},{src:'img/f4.webp',pos:'20% 30%'},
+   {src:'img/f1.webp',pos:'50% 40%'},{src:'img/f5.webp',pos:'50% 35%'},
+   {src:'img/f2.webp',pos:'50% 40%'},{src:'img/f6.webp',pos:'50% 25%'}
+  ]
   // f1.jpg e f5.jpg NÃO usadas: têm crianças no grupo (plano aberto, mas mesmo assim seguimos a regra de não usar).
  },
  avaliacoes:[
@@ -60,7 +70,11 @@ window.LEAD={
    {nome:'Vagner Miguel',faixa:'Faixa preta · 4º grau',cargo:'Mestre · Fundador',unidade:'Matriz'},
    {nome:'Pamella',faixa:'Faixa preta',cargo:'Co-fundadora',unidade:'Matriz'}
   ],
-  pretos:[], // professores faixa preta de outras unidades — a confirmar (placeholder aparece no site)
+  pretos:[ // confirmado direto nos Instagrams das unidades (2026-09-23)
+   {nome:'Lucas Thomaz',faixa:'Faixa preta',cargo:'Professor',unidade:'Vila Aurora'},
+   {nome:'Guilherme Silva',faixa:'Faixa preta',cargo:'Professor',unidade:'Rubi'},
+   {nome:'Alexandre',faixa:'Faixa preta',cargo:'Professor',unidade:'Pirituba'}
+  ],
   marrons:[] // faixas marrom responsáveis por unidades sem faixa preta — a confirmar
  },
  mapa:'https://www.google.com/maps?q=Av.+Alexios+Jafet,+1292,+S%C3%A3o+Paulo,+SP,+05187-010&output=embed',
