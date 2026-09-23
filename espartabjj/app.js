@@ -1,4 +1,3 @@
-
 (function(){
  // Temas derivados de sites reais (cores e fontes lidas do código). Ver _referencias/PADRAO-DERIVADO.md
  var T={
@@ -28,7 +27,12 @@
  var stars='★★★★★', N=L.nota, lab=L.rotulos||{};
  var WAI='<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 13.9c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.3.4c-.1.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.4.1.3.1.8-.1 1.4z"/></svg>';
  var h='';
- h+='<header><div class="w"><a class="logo" href="#">'+(L.logo?'<img class="logo-img" src="'+L.logo+'" alt="">':'')+'<span>'+esc(L.nome)+'<small>'+esc(L.tagline)+'</small></span></a><nav><a href="#servicos">'+esc(lab.servicos||'Serviços')+'</a><a href="#galeria">'+esc(lab.galeria||'Trabalhos')+'</a><a href="#avaliacoes">Avaliações</a><a href="#contato">Contato</a></nav><a class="btn b1" href="#contato">'+esc(cta)+'</a><a class="burger" href="#" aria-label="Menu"><i></i></a></div></header><main>';
+ var navLinks='<a href="#servicos">'+esc(lab.servicos||'Serviços')+'</a>'+
+  (L.equipe?'<a href="#equipe">Equipe</a>':'')+
+  (L.mvv||L.valores?'<a href="#valores">Valores</a>':'')+
+  '<a href="#avaliacoes">Avaliações</a>'+
+  '<a href="#contato">Contato</a>';
+ h+='<header><div class="w"><a class="logo" href="#">'+(L.logo?'<img class="logo-img" src="'+L.logo+'" alt="">':'')+'<span>'+esc(L.nome)+'<small>'+esc(L.tagline)+'</small></span></a><nav>'+navLinks+'</nav><a class="btn b1" href="#contato">'+esc(cta)+'</a><a class="burger" href="#" aria-label="Menu"><i></i></a></div></header><main>';
  var dk=/_dark$/.test(L.tema);
  h+='<section class="hero'+(dk?' hero-dk':'')+'" style="padding-top:0">'+(dk&&(L.watermark||L.logo)?'<img class="hero-mark" src="'+(L.watermark||L.logo)+'" alt="">':'')+'<div class="w rv-hero"><div><div class="kick">'+esc(L.kicker)+'</div><h1>'+esc(L.h1)+'</h1><p class="lead">'+esc(L.sub)+'</p><div class="ctas"><a class="btn b1" href="'+wa+'">'+esc(L.ctaWhats||'Falar pelo WhatsApp')+'</a><a class="btn b2" href="#galeria">'+esc(cta2)+'</a></div></div><div><div class="ph"'+(L.fotos.hero&&L.fotos.hero.ratio?' style="aspect-ratio:'+L.fotos.hero.ratio+'"':'')+'>'+(L.fotos.hero&&L.fotos.hero.src?'<img src="'+L.fotos.hero.src+'" style="object-position:'+(L.fotos.hero.pos||'50% 50%')+';object-fit:'+(L.fotos.hero.fit||'cover')+'" alt="">':'<div class="ph-empty">Foto do espaço/equipe<br>(a inserir)</div>')+'</div>'+(L.fotos.hero&&L.fotos.hero.legenda?'<div class="cap">'+esc(L.fotos.hero.legenda)+'</div>':'')+'</div></div></section>';
  h+='<div class="info"><div class="w"><div class="c"><small>Localização</small><b>'+esc(L.localizacao)+'</b></div><div class="c"><small>WhatsApp</small><b>'+esc(L.whatsapp.display)+'</b></div><div class="c"><small>Avaliações no Google</small><b><span class="stars">'+stars+'</span> '+esc(N.valor)+' · '+esc(N.qtd)+' avaliações</b></div></div></div>';
