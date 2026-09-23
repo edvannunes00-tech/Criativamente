@@ -47,7 +47,8 @@ window.LEAD={
   marrons:[] // faixas marrom responsáveis por unidades sem faixa preta — a confirmar
  },
  mapa:'https://www.google.com/maps?q=Av.+Alexios+Jafet,+1292,+S%C3%A3o+Paulo,+SP,+05187-010&output=embed',
- favicon:'img/logo.png', // ícone só nesta página, a pedido do Edvan (2026-09-23) — não mexe no site inteiro
+ favicon:'img/caveira.png', // só a caveira com asas, a pedido do Edvan (2026-09-23)
+ tituloAba:'Prévia Esparta BJJ',
  fxFundo:'img/gorila.webp', // imagem fornecida pelo Edvan (2026-09-23), pro fundo animado vermelho/preto da seção final
  sobre:{ // texto base fornecido pelo Edvan (2026-09-23), só revisado pra fluir em texto corrido
   titulo:'Quem está à frente',

@@ -20,7 +20,7 @@
  var isDark=/_dark$/.test(L.tema); if(isDark){root.setProperty('--line','rgba(255,255,255,.16)'); document.documentElement.classList.add('is-dark');}
  if(L.accent)root.setProperty('--accent',L.accent);
  document.getElementById('gf').href='https://fonts.googleapis.com/css2?'+th.fonts+'&display=swap';
- document.title='Prévia — '+L.nome;
+ document.title=L.tituloAba||('Prévia — '+L.nome);
  if(L.favicon){var lk=document.createElement('link');lk.rel='icon';lk.href=L.favicon;document.head.appendChild(lk);}
  var esc=function(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')};
  var wa='https://wa.me/'+L.whatsapp.numero+'?text='+encodeURIComponent(L.whatsapp.msg||'Olá! Vim pelo site.');
@@ -60,5 +60,4 @@
  h+='<div class="ct" id="contato"><div class="w"><div><div class="lab" style="opacity:.8">Contato</div><h2>'+esc(L.contato.titulo)+'</h2><p>'+esc(L.contato.texto)+'</p><a class="btn b1" href="'+wa+'">'+esc(L.ctaWhats||'Falar pelo WhatsApp')+'</a></div><div><div class="l"><small>Endereço</small><span>'+esc(L.endereco[0])+'<br>'+esc(L.endereco[1])+'</span></div><div class="l"><small>WhatsApp</small><span>'+esc(L.whatsapp.display)+'</span></div>'+(L.horarios?'<div class="l"><small>Horário</small><span>'+esc(L.horarios)+'</span></div>':'')+(L.mapa?'<div class="ct-map" style="display:flex;align-items:center;justify-content:center;background:var(--alt)"><a class="btn b2" href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(L.endereco.join(', '))+'" target="_blank" rel="noopener">Ver no Google Maps</a></div>':'')+'</div></div></div></main>';
  h+='<footer><div class="w"><span>© '+esc(L.nome)+'</span><span>Prévia ilustrativa · criada por criativamentedigital.com.br</span></div></footer><a class="wa" href="'+wa+'" aria-label="WhatsApp">'+WAI+'</a>';
  document.getElementById('app').innerHTML=h;document.documentElement.style.setProperty('--gn',(L.fotos.galeria&&L.fotos.galeria.length)||4);
- window.addEventListener('load',function(){setTimeout(function(){document.title='H:'+document.documentElement.scrollHeight},1500)});
 })();
