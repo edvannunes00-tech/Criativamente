@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Esparta Fit — Academia de Musculação</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Esparta Fit — identidade própria (Edvan, 2026-09-23): base branco/cinza claro, preto #111 + vermelho #9E171D,
+   Oswald nos títulos (condensado/esportivo), Inter no corpo. Dados reais: fotos f1-f5, logo, endereço confirmado.
+   WhatsApp, horário e Instagram confirmados via @espartaa_fit (2026-09-23). Musculação + Jiu-Jitsu (combo) confirmados na bio.
+   Preços dos planos: valores de exemplo passados pelo Edvan (2026-09-23), serão atualizados — por isso o aviso no popup. */
+:root{
+ --bg:#FFFFFF; --alt:#F4F4F5; --ink:#111111; --red:#9E171D; --red2:#C21F27;
+ --gray:#5B5B5F; --line:#E4E4E6; --metal:#9A9AA0;
+ --display:'Oswald',sans-serif; --body:'Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.w{max-width:1220px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--display);text-transform:uppercase;line-height:1.08;letter-spacing:.01em}
+.red{color:var(--red)}
+.btn{display:inline-flex;align-items:center;gap:10px;justify-content:center;border-radius:6px;padding:16px 30px;font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.05em;text-transform:uppercase;transition:transform .15s,opacity .15s}
+.btn:active{transform:scale(.97)}
+.b1{background:var(--red);color:#fff;box-shadow:0 10px 24px -8px rgba(158,23,29,.55)}
+.b1:hover{background:var(--red2)}
+.b2{background:var(--ink);color:#fff}
+.b2:hover{opacity:.85}
+.b3{border:2px solid var(--ink);color:var(--ink)}
+.b3:hover{background:var(--ink);color:#fff}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .w{display:flex;align-items:center;justify-content:space-between;height:82px;gap:20px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:52px;height:52px;object-fit:contain;border-radius:10px;background:var(--ink)}
+.brand b{font-family:var(--display);font-size:16px;letter-spacing:.02em;display:block}
+.brand span{display:block;font-size:10px;letter-spacing:.14em;color:var(--gray);text-transform:uppercase;margin-top:2px}
+nav{display:flex;gap:30px;font-family:var(--display);font-size:13px;letter-spacing:.05em;text-transform:uppercase}
+nav a{opacity:.85}
+nav a:hover{opacity:1;color:var(--red)}
+.hbtn{display:none;width:44px;height:44px;border:1.5px solid var(--ink);border-radius:8px;place-items:center;background:none;cursor:pointer}
+.hbtn i{display:block;width:18px;height:2px;background:var(--ink);box-shadow:0 6px 0 var(--ink),0 -6px 0 var(--ink)}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:64px 0 0;background:linear-gradient(180deg,#fff 0%,var(--alt) 100%)}
+.hero-diag{position:absolute;top:0;right:0;height:100%;width:56%;pointer-events:none;z-index:0}
+.hero-diag i{position:absolute;top:-10%;height:130%;width:64px;background:linear-gradient(180deg,var(--red),#5c0d10);transform:skewX(-18deg);opacity:.9}
+.hero-diag i:nth-child(1){right:26%;opacity:.18}
+.hero-diag i:nth-child(2){right:20%;width:48px;opacity:.32}
+.hero-diag i:nth-child(3){right:12%;width:80px;opacity:.55}
+.hero-diag i:nth-child(4){right:0%;width:110px;opacity:.9}
+.hero-word{position:absolute;right:18px;top:52%;transform:translateY(-50%) rotate(90deg);transform-origin:right center;font-family:var(--display);font-size:110px;font-weight:700;color:var(--ink);opacity:.05;letter-spacing:.08em;white-space:nowrap;z-index:0;pointer-events:none}
+.hero .w{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:end;position:relative;z-index:1}
+.hero-kick{font-family:var(--display);font-size:13px;font-weight:600;letter-spacing:.22em;color:var(--red);margin-bottom:18px}
+.hero h1{font-size:clamp(38px,5vw,64px);margin-bottom:22px}
+.hero p.lead{font-size:17px;color:var(--gray);max-width:34em;margin-bottom:32px}
+.hero .ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:56px}
+.hero-ph{position:relative;display:flex;justify-content:center;align-items:flex-end}
+.hero-ph img{width:100%;max-width:480px;height:auto}
+@media (max-width:980px){
+ .hero .w{grid-template-columns:1fr;padding-bottom:0}
+ .hero-ph{order:-1;margin-bottom:12px}
+ .hero-ph img{max-width:320px}
+ .hero-word{font-size:70px}
+}
+
+/* feature strip */
+.feats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff}
+.feats .w{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.feats .f{display:flex;align-items:center;gap:12px;padding:26px 22px;border-left:1px solid var(--line)}
+.feats .f:first-child{border-left:0}
+.feats .ic{width:38px;height:38px;flex:none;display:grid;place-items:center;color:var(--red)}
+.feats b{font-family:var(--display);font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;line-height:1.3;display:block}
+@media (max-width:820px){.feats .w{grid-template-columns:1fr 1fr}.feats .f{border-left:0;border-top:1px solid var(--line);padding:20px}.feats .f:nth-child(2){border-left:1px solid var(--line)}.feats .f:nth-child(4){border-left:1px solid var(--line)}.feats .f:nth-child(1),.feats .f:nth-child(2){border-top:0}}
+
+section{padding:100px 0}
+.lab{font-family:var(--display);font-size:12.5px;font-weight:600;letter-spacing:.2em;color:var(--red);text-transform:uppercase;margin-bottom:14px}
+h2{font-size:clamp(28px,3.6vw,42px);margin-bottom:20px}
+
+/* sobre */
+.sobre{background:var(--alt)}
+.sobre .w{display:grid;grid-template-columns:1fr 1.05fr;gap:60px;align-items:center}
+.sobre-ph{position:relative;border-radius:8px;overflow:hidden;aspect-ratio:4/3.1;isolation:isolate}
+.sobre-ph img{width:100%;height:100%;object-fit:cover}
+.sobre-ph::after{content:"";position:absolute;left:0;top:0;bottom:0;width:8px;background:linear-gradient(180deg,var(--red),#5c0d10)}
+.sobre p{color:var(--gray);font-size:16px;margin-bottom:26px;max-width:36em}
+.sobre-chips{display:flex;flex-wrap:wrap;gap:10px}
+.sobre-chips span{border:1.5px solid var(--ink);border-radius:999px;padding:9px 18px;font-family:var(--display);font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+@media (max-width:820px){.sobre .w{grid-template-columns:1fr;gap:30px}}
+
+/* estrutura / modalidades */
+.est-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:8px}
+.est-card{border:1px solid var(--line);border-radius:8px;padding:30px 26px;background:#fff;position:relative;overflow:hidden}
+.est-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--red)}
+.est-card h3{font-size:19px;margin-bottom:10px}
+.est-card p{color:var(--gray);font-size:14.5px}
+
+/* planos */
+.planos{background:var(--ink);color:#fff;text-align:center}
+.planos .lab{color:#ff5a5f}
+.planos h2{color:#fff}
+.planos p{color:#c9c9cc;max-width:34em;margin:0 auto 30px;font-size:16px}
+.planos .btn{border:0;cursor:pointer}
+
+/* popup de planos */
+.modal{position:fixed;inset:0;z-index:100;background:rgba(10,10,10,.72);display:flex;align-items:center;justify-content:center;padding:20px}
+.modal-card{position:relative;background:#fff;border-radius:12px;max-width:920px;width:100%;padding:44px 40px;max-height:88vh;overflow:auto}
+.modal-x{position:absolute;top:16px;right:16px;width:38px;height:38px;border-radius:50%;border:1.5px solid var(--line);background:#fff;font-size:22px;line-height:1;cursor:pointer;color:var(--ink)}
+.modal-note{color:var(--gray);font-size:13px;margin-bottom:26px}
+.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.plan-card{border:1.5px solid var(--line);border-radius:10px;padding:28px 22px;text-align:center}
+.plan-card h3{font-size:18px;margin-bottom:14px}
+.plan-price{font-family:var(--display);font-size:32px;color:var(--ink);margin-bottom:10px}
+.plan-price span{font-family:var(--body);font-size:13px;color:var(--gray);font-weight:400;text-transform:none}
+.plan-card p{color:var(--gray);font-size:13.5px;margin-bottom:20px;min-height:36px}
+.plan-card .btn{width:100%;padding:13px 18px}
+.plan-card.feat{border-color:var(--red);position:relative;box-shadow:0 14px 30px -14px rgba(158,23,29,.4)}
+.plan-tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;font-family:var(--display);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:5px 14px;border-radius:999px}
+@media (max-width:820px){.plan-grid{grid-template-columns:1fr}.modal-card{padding:30px 22px}}
+
+/* galeria */
+.gal-wrap{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;background:var(--ink)}
+.gal-wrap figure{aspect-ratio:3/4;overflow:hidden;margin:0}
+.gal-wrap img{width:100%;height:100%;object-fit:cover;filter:grayscale(.15)}
+.gal-txt{background:var(--ink);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;gap:6px}
+.gal-txt b{font-family:var(--display);font-size:20px;line-height:1.2}
+.gal-txt small{color:#c9c9cc;font-size:12px;letter-spacing:.04em}
+@media (max-width:820px){.gal-wrap{grid-template-columns:repeat(2,1fr)}.gal-wrap figure:nth-child(1){grid-column:1/-1;aspect-ratio:16/9}}
+
+/* contato / footer */
+.ct{background:var(--alt);padding:90px 0}
+.ct .w{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.ct p{color:var(--gray);font-size:16px;margin-bottom:28px;max-width:30em}
+.ct .box{background:#fff;border:1px solid var(--line);border-radius:10px;padding:30px}
+.ct .l{border-top:1px solid var(--line);padding:16px 0}
+.ct .l:first-child{border-top:0;padding-top:0}
+.ct .l small{display:block;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gray);margin-bottom:6px}
+.ct .l span{font-family:var(--display);font-size:18px}
+@media (max-width:820px){.ct .w{grid-template-columns:1fr;gap:30px}}
+
+footer{background:var(--ink);color:#c9c9cc;padding:40px 0}
+footer .w{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
+footer .brand img{background:transparent}
+footer .brand b{color:#fff}
+.wa-fab{position:fixed;right:20px;bottom:20px;width:58px;height:58px;border-radius:50%;background:#25A55F;color:#fff;display:grid;place-items:center;box-shadow:0 8px 20px rgba(0,0,0,.3);z-index:60}
+
+@media (max-width:820px){
+ .w{padding:0 18px}
+ nav{display:none}
+ header .btn{display:none}
+ .hbtn{display:grid}
+ header .w{height:70px}
+ .brand img{width:42px;height:42px}
+ .brand b{font-size:14px}
+ .brand span span{display:none}
+ section{padding:64px 0}
+ .feats .f{gap:10px}
+ .hero{padding-top:32px}
+ .hero-diag,.hero-word{display:none}
+ .hero .ctas{margin-bottom:36px}
+}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="w">
+  <a class="brand" href="#inicio">
+   <img src="img/logo.webp" alt="Esparta Fit">
+   <span><b>Esparta Fit</b><span>Academia de Musculação</span></span>
+  </a>
+  <nav>
+   <a href="#inicio">Início</a>
+   <a href="#sobre">Sobre</a>
+   <a href="#estrutura">Estrutura</a>
+   <a href="#planos">Planos</a>
+   <a href="#contato">Contato</a>
+  </nav>
+  <a class="btn b1" href="#contato" style="padding:13px 22px">Fale no WhatsApp</a>
+  <button class="hbtn" id="mbtn" aria-label="Menu"><i></i></button>
+ </div>
+</header>
+
+<div id="mmenu" style="display:none;background:#fff;border-bottom:1px solid var(--line)">
+ <div class="w" style="display:flex;flex-direction:column;padding:18px;gap:16px;font-family:var(--display);text-transform:uppercase;letter-spacing:.05em;font-size:14px">
+  <a href="#inicio">Início</a><a href="#sobre">Sobre</a><a href="#estrutura">Estrutura</a><a href="#planos">Planos</a><a href="#contato">Contato</a>
+ </div>
+</div>
+
+<main>
+
+<section class="hero" id="inicio">
+ <div class="hero-diag"><i></i><i></i><i></i><i></i></div>
+ <div class="hero-word">ESPARTA</div>
+ <div class="w">
+  <div>
+   <div class="hero-kick">DISCIPLINA · FOCO · RESULTADOS</div>
+   <h1>Seja sua<br><span class="red">melhor versão.</span></h1>
+   <p class="lead">Mais que uma academia, um estilo de vida. Estrutura completa, equipamentos de alta performance e um ambiente que motiva você a ir mais longe.</p>
+   <div class="ctas">
+    <a class="btn b1" href="https://wa.me/5511914587702?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20Esparta%20Fit.">Comece agora →</a>
+    <a class="btn b3" href="#estrutura">Ver a academia</a>
+   </div>
+  </div>
+  <div class="hero-ph"><img src="img/hero-casal.webp" alt="Alunos treinando na Esparta Fit"></div>
+ </div>
+</section>
+
+<div class="feats">
+ <div class="w">
+  <div class="f"><span class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 7v10M18 7v10M2 10v4M22 10v4M6 12h12"/></svg></span><b>Equipamentos<br>completos</b></div>
+  <div class="f"><span class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V9l7-6 7 6v12M9 21v-6h6v6"/></svg></span><b>Estrutura<br>ampla</b></div>
+  <div class="f"><span class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></span><b>Ambiente<br>motivador</b></div>
+  <div class="f"><span class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></span><b>Foco em<br>resultado</b></div>
+ </div>
+</div>
+
+<section class="sobre" id="sobre">
+ <div class="w">
+  <div class="sobre-ph"><img src="img/pesos.webp" alt="Sala de musculação da Esparta Fit"></div>
+  <div>
+   <div class="lab">Sobre a Esparta Fit</div>
+   <h2>Mais que treino,<br>uma <span class="red">mentalidade.</span></h2>
+   <p>Na Esparta Fit acreditamos que o treino transforma não só o corpo, mas também a mente. Equipamentos completos, espaço amplo e um ambiente pensado pra quem busca evolução de verdade — todos os dias.</p>
+   <div class="sobre-chips">
+    <span>Musculação</span><span>Espaço amplo</span><span>Equipamentos completos</span><span>Ambiente motivador</span>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="estrutura" id="estrutura">
+ <div class="w">
+  <div class="lab">Estrutura</div>
+  <h2>O que você encontra aqui</h2>
+  <div class="est-grid">
+   <div class="est-card"><h3>Musculação</h3><p>Equipamentos completos para todos os níveis, do iniciante ao avançado.</p></div>
+   <div class="est-card"><h3>Jiu-Jitsu</h3><p>Aulas de artes marciais, em parceria com a Esparta Jiu-Jitsu Team.</p></div>
+   <div class="est-card"><h3>Espaço amplo</h3><p>Ambiente bem equipado e pensado pra você treinar com conforto.</p></div>
+   <div class="est-card"><h3>Estrutura completa</h3><p>Tudo o que você precisa pra manter a consistência no treino.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="planos" id="planos">
+ <div class="w">
+  <div class="lab">Planos</div>
+  <h2>Escolha o seu objetivo</h2>
+  <p>Musculação, Jiu-Jitsu ou os dois combinados. Veja os planos e fale com a gente no WhatsApp.</p>
+  <button class="btn b1" id="planosBtn" type="button">Ver planos →</button>
+ </div>
+</section>
+
+<div id="planosModal" class="modal" style="display:none">
+ <div class="modal-card">
+  <button class="modal-x" id="planosClose" aria-label="Fechar" type="button">&times;</button>
+  <div class="lab">Planos Esparta Fit</div>
+  <h2 style="margin-bottom:6px">Escolha o seu objetivo</h2>
+  <p class="modal-note">Valores de exemplo, sujeitos a atualização.</p>
+  <div class="plan-grid">
+   <div class="plan-card">
+    <h3>Academia</h3>
+    <div class="plan-price">R$ 70<span>/mês</span></div>
+    <p>Musculação com equipamentos completos.</p>
+    <a class="btn b3" href="https://wa.me/5511914587702?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20plano%20Academia%20(R%2470).">Quero esse →</a>
+   </div>
+   <div class="plan-card feat">
+    <span class="plan-tag">Combo</span>
+    <h3>Academia + Jiu-Jitsu</h3>
+    <div class="plan-price">R$ 190<span>/mês</span></div>
+    <p>Musculação e artes marciais no mesmo plano.</p>
+    <a class="btn b1" href="https://wa.me/5511914587702?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20combo%20Academia%20%2B%20Jiu-Jitsu%20(R%24190).">Quero esse →</a>
+   </div>
+   <div class="plan-card">
+    <h3>Jiu-Jitsu</h3>
+    <div class="plan-price">R$ 140<span>/mês</span></div>
+    <p>Aulas de artes marciais na Esparta.</p>
+    <a class="btn b3" href="https://wa.me/5511914587702?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20plano%20Jiu-Jitsu%20(R%24140).">Quero esse →</a>
+   </div>
+  </div>
+ </div>
+</div>
+</section>
+
+<div class="gal-wrap">
+ <figure><img src="img/f1.webp" alt=""></figure>
+ <figure><img src="img/f4.webp" alt=""></figure>
+ <div class="gal-txt"><b>Resultados<br><span class="red">reais.</span></b><small>Disciplina transforma.</small></div>
+ <figure><img src="img/f2.webp" alt=""></figure>
+ <figure><img src="img/f3.webp" alt=""></figure>
+</div>
+
+<section class="ct" id="contato">
+ <div class="w">
+  <div>
+   <div class="lab">Contato</div>
+   <h2>Pronto para começar?</h2>
+   <p>Dê o primeiro passo hoje mesmo. Fale pelo WhatsApp e venha conhecer a Esparta Fit.</p>
+   <a class="btn b1" href="https://wa.me/5511914587702?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20Esparta%20Fit.">Falar pelo WhatsApp</a>
+  </div>
+  <div class="box">
+   <div class="l"><small>Endereço</small><span>Av. Alexios Jafet, 2400 (sobreloja)<br>Jardim Ipanema (Zona Oeste) · São Paulo, SP · CEP 05186-005</span></div>
+   <div class="l"><small>WhatsApp</small><span>(11) 91458-7702</span></div>
+   <div class="l"><small>Horário</small><span>Seg-Sex · 6h às 22h<br>Sáb · 8h às 12h</span></div>
+   <div class="l"><small>Instagram</small><span>@espartaa_fit</span></div>
+  </div>
+ </div>
+</section>
+
+</main>
+
+<footer>
+ <div class="w">
+  <a class="brand" href="#inicio"><img src="img/logo.webp" alt="Esparta Fit" style="width:40px;height:40px"><b style="font-size:14px">Esparta Fit</b></a>
+  <span style="font-size:12px;letter-spacing:.05em;text-transform:uppercase">Seja sua melhor versão</span>
+  <span style="font-size:12px">Prévia ilustrativa · criada por criativamentedigital.com.br</span>
+ </div>
+</footer>
+
+<a class="wa-fab" href="https://wa.me/5511914587702?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20Esparta%20Fit." aria-label="WhatsApp">
+ <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 13.9c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.3.4c-.1.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.4.1.3.1.8-.1 1.4z"/></svg>
+</a>
+
+<script src="app.js"></script>
+</body>
+</html>
