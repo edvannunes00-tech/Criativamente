@@ -57,6 +57,7 @@ nav a:hover{opacity:1;color:var(--red)}
 .hero-diag i:nth-child(3){right:12%;width:80px;opacity:.55}
 .hero-diag i:nth-child(4){right:0%;width:110px;opacity:.9}
 .hero-word{position:absolute;right:18px;top:52%;transform:translateY(-50%) rotate(90deg);transform-origin:right center;font-family:var(--display);font-size:110px;font-weight:700;color:var(--ink);opacity:.05;letter-spacing:.08em;white-space:nowrap;z-index:0;pointer-events:none}
+.hero-wm{position:absolute;top:0;left:50%;transform:translateX(-50%);width:min(50vw,660px);max-width:none;opacity:.14;z-index:0;pointer-events:none;-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 55%,transparent 96%);mask-image:linear-gradient(to bottom,#000 0%,#000 55%,transparent 96%)}
 .hero .w{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:end;position:relative;z-index:1}
 .hero-kick{font-family:var(--display);font-size:13px;font-weight:600;letter-spacing:.22em;color:var(--red);margin-bottom:18px}
 .hero h1{font-size:clamp(38px,5vw,64px);margin-bottom:22px}
@@ -164,6 +165,7 @@ footer .brand b{color:#fff}
  .feats .f{gap:10px}
  .hero{padding-top:32px}
  .hero-diag,.hero-word{display:none}
+ .hero-wm{width:min(85vw,480px);opacity:.16}
  .hero .ctas{margin-bottom:36px}
 }
 </style>
@@ -188,7 +190,7 @@ footer .brand b{color:#fff}
  </div>
 </header>
 
-<div id="mmenu" style="display:none;background:#fff;border-bottom:1px solid var(--line)">
+<div id="mmenu" style="display:none;position:fixed;top:70px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 12px 24px -8px rgba(0,0,0,.18);z-index:49;max-height:calc(100vh - 70px);overflow-y:auto">
  <div class="w" style="display:flex;flex-direction:column;padding:18px;gap:16px;font-family:var(--display);text-transform:uppercase;letter-spacing:.05em;font-size:14px">
   <a href="#inicio">Início</a><a href="#sobre">Sobre</a><a href="#estrutura">Estrutura</a><a href="#planos">Planos</a><a href="#contato">Contato</a>
  </div>
@@ -199,6 +201,7 @@ footer .brand b{color:#fff}
 <section class="hero" id="inicio">
  <div class="hero-diag"><i></i><i></i><i></i><i></i></div>
  <div class="hero-word">ESPARTA</div>
+ <img class="hero-wm" src="img/guerreiro.webp" alt="">
  <div class="w">
   <div>
    <div class="hero-kick">DISCIPLINA · FOCO · RESULTADOS</div>
@@ -320,7 +323,7 @@ footer .brand b{color:#fff}
  <div class="w">
   <a class="brand" href="#inicio"><img src="img/logo.webp" alt="Esparta Fit" style="width:40px;height:40px"><b style="font-size:14px">Esparta Fit</b></a>
   <span style="font-size:12px">© 2026 Esparta Fit. Todos os direitos reservados.</span>
-  <a href="https://criativamentedigital.com.br" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;opacity:.7;font-size:12px">Desenvolvido por <img src="img/cd-logo.png" alt="Criativamente Digital" style="width:16px;height:16px;object-fit:contain"> Criativamente Digital</a>
+  <a href="https://criativamentedigital.com.br/sites" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;opacity:.7;font-size:12px">Desenvolvido por <img src="img/cd-logo.png" alt="Criativamente Digital" style="width:16px;height:16px;object-fit:contain"> Criativamente Digital</a>
  </div>
 </footer>
 
