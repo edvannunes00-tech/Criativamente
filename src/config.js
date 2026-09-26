@@ -60,6 +60,7 @@ const SITE_CONFIG = {
       { label: "Sobre", href: "#sobre" },
       { label: "FAQ", href: "#faq" },
       { label: "Criação de sites", href: "/sites", highlight: true },
+      { label: "Tráfego pago", href: "/trafego-pago", highlight: true },
     ],
   },
 
@@ -94,6 +95,9 @@ const SITE_CONFIG = {
       { name: "Eduzz", color: "#2B6CF6" },
       { name: "Monetizze", color: "#C026D3" },
       { name: "Ticto", color: "#14B8A6" },
+      { name: "Meta Ads", color: "#0A84FF" },
+      { name: "Google Ads", color: "#FBBC04" },
+      { name: "TikTok Ads", color: "#25F4EE" },
     ],
   },
 

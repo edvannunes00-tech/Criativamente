@@ -1,0 +1,48 @@
+/* Página de Gestão de Tráfego Pago — complementos mínimos sobre styles.css (mesmo design system, sem redefinir o que já existe) */
+
+.hero-note{font-family:var(--font-mono);font-size:12px;letter-spacing:.02em;color:var(--gray-2);max-width:58ch;margin:-48px 0 72px}
+@media (max-width:700px){.hero-note{margin:-40px 0 56px}}
+
+/* Investimento: card da assinatura + card da verba */
+.tp-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:20px;align-items:stretch}
+.tp-card{border:1px solid var(--line);border-radius:22px;padding:40px 36px;display:flex;flex-direction:column;background:rgba(245,245,242,.02)}
+.tp-main{border-color:var(--accent);background:radial-gradient(90% 70% at 0% 0%,rgba(156,255,25,.10),transparent 70%),rgba(245,245,242,.02)}
+.tp-mode{font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gray-1);margin-bottom:18px}
+.tp-price{display:flex;align-items:baseline;gap:8px;color:var(--white);margin-bottom:10px}
+.tp-cur{font-size:22px;font-weight:700;color:var(--gray-1)}
+.tp-val{font-size:clamp(64px,8vw,96px);font-weight:800;letter-spacing:-.04em;line-height:1}
+.tp-per{font-family:var(--font-mono);font-size:16px;color:var(--gray-1)}
+.tp-price-alt .tp-val{font-size:clamp(30px,3.4vw,42px);letter-spacing:-.03em;line-height:1.1}
+.tp-sub{font-family:var(--font-mono);font-size:12px;letter-spacing:.04em;color:var(--gray-2);margin-bottom:28px}
+.tp-list{list-style:none;margin:0 0 32px;padding:0;border-top:1px solid var(--line)}
+.tp-list li{padding:14px 0 14px 28px;border-bottom:1px solid var(--line);color:var(--white);font-size:15px;position:relative}
+.tp-list li::before{content:"";position:absolute;left:2px;top:50%;width:10px;height:6px;border-left:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:translateY(-70%) rotate(-45deg)}
+.tp-fine{font-size:12.5px;color:var(--gray-2);margin-top:16px;line-height:1.55}
+.tp-text{font-size:15px;line-height:1.7;margin-bottom:16px}
+.tp-text strong{color:var(--white);font-weight:700}
+.tp-side .tp-sub{margin-bottom:24px}
+
+/* Como funciona: 4 etapas */
+.tp-track{grid-template-columns:repeat(4,1fr)}
+@media (max-width:980px){.tp-grid{grid-template-columns:1fr}.tp-card{padding:32px 24px}}
+
+/* FAQ: respostas um pouco maiores que o padrão */
+.faq-item.open .faq-answer{max-height:340px}
+
+/* CTA final */
+.tp-final{background:radial-gradient(60% 60% at 50% 0%,rgba(156,255,25,.09),transparent 70%),var(--black)}
+.tp-final-inner{text-align:center;max-width:760px;margin:0 auto}
+.tp-final-title{font-size:clamp(30px,4.4vw,56px);font-weight:800;letter-spacing:-.03em;line-height:1.05;margin-bottom:20px}
+.tp-final-sub{font-size:17px;margin:0 auto 36px;max-width:46ch}
+
+.tp-legal{font-family:var(--font-mono);font-size:11px;line-height:1.6;color:var(--gray-3);margin-top:14px;max-width:62ch}
+
+/* WhatsApp flutuante */
+.tp-wa{position:fixed;right:20px;bottom:20px;width:56px;height:56px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.45);z-index:90;transition:transform .3s var(--ease)}
+.tp-wa:hover{transform:translateY(-2px) scale(1.04)}
+
+@media (max-width:700px){
+  .tp-track{grid-template-columns:1fr 1fr}
+  .tp-wa{right:14px;bottom:14px}
+  .footer-inner{align-items:flex-start}
+}
