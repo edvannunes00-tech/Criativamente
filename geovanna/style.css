@@ -96,3 +96,15 @@ footer strong{color:#fff}footer span{color:#a9b0b5;font-size:12.5px}
 .flogo{height:96px;width:auto;margin-bottom:12px}
 @media(max-width:820px){.two:has(.sobre-ph){grid-template-columns:1fr}.sobre-ph{max-width:340px}.portrait{max-width:280px}.office img{max-height:260px}.flogo{height:80px}}
 .ct-ph{height:auto;max-height:280px}
+
+/* botões de contato */
+.cbtns{display:grid;gap:12px;max-width:440px;margin-top:26px}
+.cbtn{display:flex;align-items:center;gap:16px;padding:14px 20px;border:1px solid var(--line);border-left:3px solid var(--bronze);background:#fff;border-radius:4px;text-decoration:none;color:var(--navy);transition:background .2s,border-color .2s,transform .2s,color .2s;min-height:64px}
+.cbtn svg{flex:none;color:var(--wine)}
+.cbtn span{display:block;min-width:0}
+.cbtn strong{display:block;font-family:var(--serif);font-weight:500;font-size:18px;line-height:1.2}
+.cbtn small{display:block;font-size:13px;color:var(--muted);overflow-wrap:anywhere;margin-top:2px}
+.cbtn:hover,.cbtn:focus-visible{background:var(--wine);border-color:var(--wine);color:#fff;transform:translateY(-1px)}
+.cbtn:hover svg,.cbtn:hover small,.cbtn:focus-visible svg,.cbtn:focus-visible small{color:#fff}
+.cbtn.wa,.cbtn.tel{background:var(--paper)}
+@media(max-width:820px){.cbtns{max-width:none}}
