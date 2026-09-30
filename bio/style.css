@@ -39,7 +39,7 @@ a { text-decoration: none; color: inherit; }
 ::selection { background: var(--accent); color: var(--accent-ink); }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
-/* fundo personalizado */
+/* fundo personalizado — vivo, mas leve (sem depender de gif externo) */
 .bio-bg {
   position: fixed;
   inset: 0;
@@ -48,6 +48,15 @@ a { text-decoration: none; color: inherit; }
   background:
     radial-gradient(120% 90% at 50% -10%, rgba(156,255,25,.14), transparent 60%),
     var(--black);
+}
+.bio-glow {
+  position: absolute;
+  inset: -20%;
+  background: conic-gradient(from 0deg at 50% 50%,
+    rgba(156,255,25,.16), transparent 22%, transparent 50%,
+    rgba(156,255,25,.10), transparent 78%, rgba(156,255,25,.16));
+  animation: bioSpin 26s linear infinite;
+  opacity: .7;
 }
 .bio-grid {
   position: absolute;
@@ -58,6 +67,15 @@ a { text-decoration: none; color: inherit; }
   background-size: 42px 42px;
   opacity: .35;
   mask-image: radial-gradient(80% 60% at 50% 30%, #000 0%, transparent 75%);
+  animation: bioGridDrift 20s linear infinite;
+}
+.bio-noise {
+  position: absolute;
+  inset: -10%;
+  opacity: .05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: bioNoise 1s steps(4) infinite;
 }
 .bio-blob {
   position: absolute;
@@ -65,16 +83,38 @@ a { text-decoration: none; color: inherit; }
   filter: blur(70px);
   opacity: .5;
 }
-.bio-blob-1 { width: 380px; height: 380px; top: -140px; left: -100px; background: radial-gradient(circle, rgba(156,255,25,.55), transparent 70%); animation: bioFloat 14s ease-in-out infinite; }
-.bio-blob-2 { width: 320px; height: 320px; bottom: -120px; right: -100px; background: radial-gradient(circle, rgba(156,255,25,.30), transparent 70%); animation: bioFloat 18s ease-in-out infinite reverse; }
+.bio-blob-1 { width: 380px; height: 380px; top: -140px; left: -100px; background: radial-gradient(circle, rgba(156,255,25,.55), transparent 70%); animation: bioFloat1 14s ease-in-out infinite; }
+.bio-blob-2 { width: 320px; height: 320px; bottom: -120px; right: -100px; background: radial-gradient(circle, rgba(156,255,25,.30), transparent 70%); animation: bioFloat2 18s ease-in-out infinite; }
+.bio-blob-3 { width: 260px; height: 260px; top: 40%; left: 50%; background: radial-gradient(circle, rgba(156,255,25,.20), transparent 70%); animation: bioFloat3 22s ease-in-out infinite; }
 
-@keyframes bioFloat {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(24px, 30px); }
+@keyframes bioFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, 36px) scale(1.08); }
+}
+@keyframes bioFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-26px, -32px) scale(1.1); }
+}
+@keyframes bioFloat3 {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) translate(20px, -18px) scale(1.15); }
+}
+@keyframes bioSpin {
+  to { transform: rotate(360deg); }
+}
+@keyframes bioGridDrift {
+  to { background-position: 42px 42px; }
+}
+@keyframes bioNoise {
+  0% { transform: translate(0,0); }
+  25% { transform: translate(-2%,1%); }
+  50% { transform: translate(1%,-2%); }
+  75% { transform: translate(2%,2%); }
+  100% { transform: translate(0,0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .bio-blob { animation: none; }
+  .bio-blob, .bio-glow, .bio-grid, .bio-noise { animation: none; }
 }
 
 /* cartão */
@@ -180,15 +220,26 @@ a { text-decoration: none; color: inherit; }
   color: var(--accent);
 }
 
-.bio-link-wa {
-  border-color: rgba(156,255,25,.4);
-  background: rgba(156,255,25,.08);
-}
-.bio-link-wa .bio-link-icon {
+/* WhatsApp: CTA isolado, visual diferente dos botões de produto */
+.bio-wa-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 26px;
+  padding: 13px 26px;
+  border-radius: 999px;
   background: var(--accent);
   color: var(--accent-ink);
+  font-weight: 700;
+  font-size: 14.5px;
+  box-shadow: 0 8px 22px rgba(156,255,25,.25);
+  transition: transform .22s cubic-bezier(.22,1,.36,1), box-shadow .22s;
 }
-.bio-link-wa .bio-link-arrow { color: var(--accent); }
+.bio-wa-cta:hover,
+.bio-wa-cta:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(156,255,25,.35);
+}
 
 .bio-footer {
   margin-top: 36px;
