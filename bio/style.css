@@ -1,0 +1,207 @@
+/* ============================================================
+   CRIATIVAMENTE DIGITAL — /bio (link na bio do Instagram)
+   Página isolada, mobile-first, mesmo design system do site.
+   ============================================================ */
+
+:root {
+  --black: #0A0A0A;
+  --white: #F5F5F2;
+  --gray-1: #B8B8B3;
+  --gray-2: #7A7A75;
+  --line: rgba(245, 245, 242, 0.14);
+  --accent: #9CFF19;
+  --accent-ink: #0A1400;
+  --font-display: "Montserrat", -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+::selection { background: var(--accent); color: var(--accent-ink); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* fundo personalizado */
+.bio-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 50% -10%, rgba(156,255,25,.14), transparent 60%),
+    var(--black);
+}
+.bio-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 42px 42px;
+  opacity: .35;
+  mask-image: radial-gradient(80% 60% at 50% 30%, #000 0%, transparent 75%);
+}
+.bio-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: .5;
+}
+.bio-blob-1 { width: 380px; height: 380px; top: -140px; left: -100px; background: radial-gradient(circle, rgba(156,255,25,.55), transparent 70%); animation: bioFloat 14s ease-in-out infinite; }
+.bio-blob-2 { width: 320px; height: 320px; bottom: -120px; right: -100px; background: radial-gradient(circle, rgba(156,255,25,.30), transparent 70%); animation: bioFloat 18s ease-in-out infinite reverse; }
+
+@keyframes bioFloat {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(24px, 30px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bio-blob { animation: none; }
+}
+
+/* cartão */
+.bio-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.bio-logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  margin-bottom: 18px;
+  box-shadow: 0 0 0 1px var(--line), 0 12px 30px rgba(0,0,0,.5);
+}
+
+.bio-name {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  margin: 0 0 8px;
+}
+.bio-name span { color: var(--accent); }
+
+.bio-tag {
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--gray-1);
+  margin: 0 0 32px;
+  max-width: 30ch;
+}
+
+.bio-links {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bio-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 14px 18px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(245,245,242,.03);
+  backdrop-filter: blur(6px);
+  transition: transform .22s cubic-bezier(.22,1,.36,1), border-color .22s, background .22s;
+}
+.bio-link:hover,
+.bio-link:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  background: rgba(156,255,25,.06);
+}
+
+.bio-link-icon {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: rgba(245,245,242,.05);
+  color: var(--accent);
+}
+
+.bio-link-text {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+.bio-link-text strong {
+  display: block;
+  font-size: 15.5px;
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+.bio-link-text small {
+  display: block;
+  font-size: 12.5px;
+  color: var(--gray-2);
+  margin-top: 2px;
+}
+
+.bio-link-arrow {
+  flex: none;
+  font-size: 16px;
+  color: var(--gray-2);
+  transition: transform .22s, color .22s;
+}
+.bio-link:hover .bio-link-arrow,
+.bio-link:focus-visible .bio-link-arrow {
+  transform: translateX(3px);
+  color: var(--accent);
+}
+
+.bio-link-wa {
+  border-color: rgba(156,255,25,.4);
+  background: rgba(156,255,25,.08);
+}
+.bio-link-wa .bio-link-icon {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+.bio-link-wa .bio-link-arrow { color: var(--accent); }
+
+.bio-footer {
+  margin-top: 36px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .06em;
+  color: var(--gray-2);
+}
+
+/* desktop: card fica flutuando, mas layout continua o mesmo (mobile-first) */
+@media (min-width: 640px) {
+  .bio-card { max-width: 440px; }
+  .bio-logo { width: 72px; height: 72px; }
+  .bio-name { font-size: 30px; }
+  .bio-link { padding: 16px 20px; }
+}
