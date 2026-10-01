@@ -77,6 +77,21 @@
     });
   }
 
+  // ambient video: force play when it scrolls into view (iOS/mobile often
+  // won't honor the autoplay attribute alone, or pauses offscreen video)
+  var ambientVideo = document.getElementById('salao-video');
+  if(ambientVideo){
+    var tryPlay = function(){ ambientVideo.muted = true; var p = ambientVideo.play(); if(p && p.catch) p.catch(function(){}); };
+    tryPlay();
+    document.addEventListener('touchstart', tryPlay, {once:true, passive:true});
+    if('IntersectionObserver' in window){
+      var vio = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting) tryPlay(); });
+      }, {threshold:.1});
+      vio.observe(ambientVideo);
+    }
+  }
+
   // reveal on scroll
   var reveals = document.querySelectorAll('.reveal');
   if('IntersectionObserver' in window && reveals.length){
