@@ -45,6 +45,25 @@
     });
   });
 
+  // gallery "ver mais" popup
+  var galleryModal = document.getElementById('gallery-modal');
+  var galleryOpen = document.getElementById('gallery-open');
+  var galleryClose = document.getElementById('gallery-close');
+  if(galleryModal && galleryOpen){
+    galleryOpen.addEventListener('click', function(){
+      galleryModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+    var closeGallery = function(){
+      galleryModal.classList.remove('open');
+      document.body.style.overflow = '';
+    };
+    galleryClose.addEventListener('click', closeGallery);
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') closeGallery();
+    });
+  }
+
   // gallery filters
   var filters = document.querySelectorAll('.filters button');
   var items = document.querySelectorAll('.masonry .ph');

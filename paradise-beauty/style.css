@@ -96,7 +96,7 @@ p{margin:0 0 14px}
 /* photo placeholders — texture block, not fake content */
 .ph{position:relative;border-radius:4px;overflow:hidden;background:linear-gradient(135deg,var(--marrom-medio),var(--marrom-escuro));aspect-ratio:4/5;display:flex;align-items:center;justify-content:center}
 .ph::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,#ffffff0a 0 2px,transparent 2px 36px)}
-.ph:has(img)::before{display:none}
+.ph-real::before{display:none}
 .ph .ph-mark{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:10px;color:#ffffff80;text-align:center;padding:16px}
 .ph .ph-mark svg{width:30px;height:30px;opacity:.8}
 .ph .ph-mark span{font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:500}
@@ -145,10 +145,22 @@ p{margin:0 0 14px}
 .masonry .ph.r1{aspect-ratio:3/4}
 .masonry .ph.r2{aspect-ratio:1/1}
 .masonry .ph.r3{aspect-ratio:4/5}
-.lightbox{position:fixed;inset:0;background:#1c130ee8;display:none;align-items:center;justify-content:center;z-index:200;padding:30px}
+.lightbox{position:fixed;inset:0;background:#1c130ee8;display:none;align-items:center;justify-content:center;z-index:250;padding:30px}
 .lightbox.open{display:flex}
 .lightbox .lb-inner{max-width:720px;width:100%;position:relative;z-index:1}
 .lightbox .lb-close{position:absolute;top:24px;right:28px;background:none;border:none;color:var(--off-white);font-size:30px;cursor:pointer;line-height:1;z-index:2}
+
+/* gallery "ver mais" popup */
+.gallery-modal{position:fixed;inset:0;background:#1c130ef5;z-index:150;display:none;overflow-y:auto;padding:90px 20px 60px}
+.gallery-modal.open{display:block}
+.gallery-modal-in{max-width:960px;margin:0 auto;position:relative;text-align:center}
+.gallery-modal-in .eyebrow{color:var(--dourado)}
+.gallery-modal-in h2{color:var(--off-white)}
+.gallery-modal-in .lb-close{position:fixed;top:24px;right:28px;background:none;border:none;color:var(--off-white);font-size:32px;cursor:pointer;line-height:1;z-index:2}
+.gallery-modal-in .filters button{border-color:#f5f1ea66;color:var(--off-white)}
+.gallery-modal-in .filters button.active,.gallery-modal-in .filters button:hover{background:var(--dourado);border-color:var(--dourado);color:var(--marrom-escuro)}
+.gallery-modal-in .masonry{text-align:left}
+@media(max-width:620px){.gallery-modal{padding:80px 14px 40px}}
 
 /* FAQ */
 .faq .q{border-bottom:1px solid #0000001a}
