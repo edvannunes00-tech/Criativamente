@@ -176,7 +176,9 @@ p{margin:0 0 14px}
 .loc-info dt:first-child{margin-top:0}
 .loc-info dd{margin:4px 0 0;font-size:15px}
 .map-ph{aspect-ratio:4/3;border-radius:4px;background:var(--bege);display:flex;align-items:center;justify-content:center;color:var(--marrom-medio);font-size:13px;position:relative;overflow:hidden}
-.map-ph::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,#00000008 0 2px,transparent 2px 24px)}
+.map-ph::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,#00000008 0 2px,transparent 2px 24px);pointer-events:none}
+.map-ph.map-real::before{display:none}
+.map-ph iframe{position:relative;z-index:1}
 
 /* contact form */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}
