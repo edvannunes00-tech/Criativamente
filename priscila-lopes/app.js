@@ -16,10 +16,11 @@
   if(burger && menu){
     burger.addEventListener('click', function(){
       var open = menu.classList.toggle('open');
+      burger.classList.toggle('is-open', open);
       burger.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
     menu.querySelectorAll('a').forEach(function(a){
-      a.addEventListener('click', function(){ menu.classList.remove('open'); burger.setAttribute('aria-expanded','false'); });
+      a.addEventListener('click', function(){ menu.classList.remove('open'); burger.classList.remove('is-open'); burger.setAttribute('aria-expanded','false'); });
     });
   }
 

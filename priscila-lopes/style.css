@@ -49,16 +49,29 @@ p{margin:0 0 16px;color:#4a4540}
 .menu{display:flex;align-items:center;gap:30px}
 .menu a{text-decoration:none;font-size:14px;font-weight:500;color:var(--texto);opacity:.85;transition:opacity .2s,color .2s}
 .menu a:hover,.menu a.is-active{opacity:1;color:var(--marsala)}
-.menu .btn{margin-left:6px}
+.menu a.btn{margin-left:6px;color:var(--off-white);opacity:1}
+.menu a.btn:hover{color:var(--off-white)}
 .burger{display:none;width:42px;height:42px;border:1px solid #29252233;color:var(--texto);background:transparent;border-radius:4px;cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:5px}
 .burger span{width:18px;height:1.5px;background:currentColor}
 
 @media(max-width:900px){
-  .menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--marsala-escuro);flex-direction:column;justify-content:center;gap:0;padding:20px}
-  .menu.open{display:flex}
-  .menu a{color:var(--off-white)!important;padding:16px 0;font-size:18px;border-bottom:1px solid #f7f3ec1f;width:230px;text-align:center}
-  .menu .btn{margin:20px 0 0;width:230px;justify-content:center;background:var(--dourado);border-color:var(--dourado);color:var(--marsala-escuro)}
+  .menu{display:flex;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--marsala-escuro);flex-direction:column;justify-content:center;gap:0;padding:20px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .35s var(--ease),visibility 0s linear .35s}
+  .menu.open{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .35s var(--ease),visibility 0s linear 0s}
+  .menu a{color:var(--off-white)!important;padding:16px 0;font-size:18px;border-bottom:1px solid #f7f3ec1f;width:230px;text-align:center;opacity:0;transform:translateY(14px);transition:opacity .35s var(--ease),transform .35s var(--ease)}
+  .menu.open a{opacity:1;transform:none}
+  .menu a:nth-child(1){transition-delay:.05s}
+  .menu a:nth-child(2){transition-delay:.1s}
+  .menu a:nth-child(3){transition-delay:.15s}
+  .menu a:nth-child(4){transition-delay:.2s}
+  .menu a:nth-child(5){transition-delay:.25s}
+  .menu a:nth-child(6){transition-delay:.3s}
+  .menu a:nth-child(7){transition-delay:.35s}
+  .menu a.btn{margin:20px 0 0;width:230px;justify-content:center;background:var(--dourado);border-color:var(--dourado);color:var(--marsala-escuro)!important;border-bottom:1px solid var(--dourado)}
   .burger{display:flex;position:relative;z-index:101}
+  .burger span{transition:transform .3s var(--ease),opacity .3s var(--ease)}
+  .burger.is-open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+  .burger.is-open span:nth-child(2){opacity:0}
+  .burger.is-open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 }
 
 /* hero split */
