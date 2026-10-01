@@ -69,7 +69,6 @@ p{margin:0 0 14px}
 /* hero */
 .hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;color:var(--off-white)}
 .hero-bg{position:absolute;inset:0;background:linear-gradient(180deg,#1c130ecc,#1c130ea0 40%,#1c130ee6),linear-gradient(120deg,var(--marrom-escuro),var(--marrom-medio));z-index:0}
-.hero-bg::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,#ffffff08 0 2px,transparent 2px 40px)}
 .hero-in{position:relative;z-index:1;padding:140px 0 90px;max-width:720px}
 .hero-local{font-size:13px;opacity:.75;margin-top:8px;letter-spacing:.03em}
 .hero .ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
@@ -97,6 +96,7 @@ p{margin:0 0 14px}
 /* photo placeholders — texture block, not fake content */
 .ph{position:relative;border-radius:4px;overflow:hidden;background:linear-gradient(135deg,var(--marrom-medio),var(--marrom-escuro));aspect-ratio:4/5;display:flex;align-items:center;justify-content:center}
 .ph::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,#ffffff0a 0 2px,transparent 2px 36px)}
+.ph:has(img)::before{display:none}
 .ph .ph-mark{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:10px;color:#ffffff80;text-align:center;padding:16px}
 .ph .ph-mark svg{width:30px;height:30px;opacity:.8}
 .ph .ph-mark span{font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:500}
