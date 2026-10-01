@@ -80,8 +80,10 @@ p{margin:0 0 16px;color:#4a4540}
 .hero .ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
 .hero .lead{font-size:17.5px;max-width:460px}
 .hero-ph{position:relative;border-radius:6px;overflow:hidden;aspect-ratio:4/5}
-.hero-tags{position:absolute;left:16px;bottom:16px;right:16px;display:flex;flex-wrap:wrap;gap:8px}
-.hero-tag{background:#ffffffe6;color:var(--texto);font-size:11.5px;font-weight:600;padding:7px 12px;border-radius:30px;letter-spacing:.02em}
+.hero-tags{position:absolute;left:0;right:0;bottom:0;background:var(--branco);padding:18px 16px;display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap}
+.hero-tag{color:var(--texto);font-size:12px;font-weight:600;letter-spacing:.03em;text-transform:uppercase}
+.hero-sep{width:7px;height:7px;flex:none;background:linear-gradient(135deg,#dfc78e,var(--dourado) 55%,#8a6a37);clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%)}
+@media(max-width:480px){.hero-tags{gap:9px;padding:14px 12px}.hero-tag{font-size:10.5px}}
 
 /* page hero (subpages) */
 .page-hero{padding:150px 0 70px;background:var(--bege)}
