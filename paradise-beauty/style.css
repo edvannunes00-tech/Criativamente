@@ -209,6 +209,7 @@ footer a:hover{color:var(--dourado)}
 
 /* responsive */
 @media(max-width:900px){
+  .cta-final-grid{grid-template-columns:1fr!important}
   .grid-2{grid-template-columns:1fr;gap:30px}
   .grid-3,.grid-4{grid-template-columns:repeat(2,1fr)}
   .grid-5{grid-template-columns:repeat(3,1fr)}
