@@ -141,7 +141,7 @@ p{margin:0 0 16px;color:#4a4540}
 .tl-step p{margin:0;font-size:14.5px}
 
 /* info cards grid (modalidade/duração/etc) */
-.info-card{background:var(--bege);border-radius:6px;padding:22px;text-align:center}
+.info-card{background:var(--bege);border:1px solid #29252214;border-radius:6px;padding:22px;text-align:center}
 .info-card .lbl{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--dourado);font-weight:600;margin-bottom:8px}
 .info-card .val{font-family:var(--serif);font-size:17px;color:var(--texto)}
 
