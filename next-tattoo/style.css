@@ -82,6 +82,7 @@ header.nav{position:sticky;top:0;z-index:300;background:rgba(13,12,11,.92);borde
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 .grid2{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.grid2.reverse{grid-template-columns:.8fr 1.2fr}
 @media(max-width:900px){.grid3,.grid4{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr;gap:28px}}
 @media(max-width:600px){.grid3,.grid4{grid-template-columns:1fr}}
 
@@ -111,6 +112,12 @@ header.nav{position:sticky;top:0;z-index:300;background:rgba(13,12,11,.92);borde
 /* estúdio */
 .estudio-photo{border:1px solid var(--line);overflow:hidden;aspect-ratio:4/3}
 .estudio-photo img{width:100%;height:100%;object-fit:cover}
+.founder-photo{border:1px solid var(--line);overflow:hidden;aspect-ratio:3/4;position:relative;background:linear-gradient(150deg,var(--black2),var(--surface))}
+.founder-photo img{width:100%;height:100%;object-fit:cover}
+.founder-photo.ph-empty img{display:none}
+.founder-photo.ph-empty:after{content:"Foto do fundador — em breve";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;font:500 12px var(--font-body);color:var(--muted2);letter-spacing:.04em}
+.badge{display:inline-block;border:1px solid var(--line-strong);padding:7px 11px;color:var(--muted2);font:500 10px var(--font-body);letter-spacing:.08em}
+.hero-badges{display:flex;flex-wrap:wrap;gap:8px}
 
 /* como funciona */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
@@ -120,13 +127,13 @@ header.nav{position:sticky;top:0;z-index:300;background:rgba(13,12,11,.92);borde
 @media(max-width:700px){.steps{grid-template-columns:1fr}}
 
 /* cta band */
-.cta-band{position:relative;border:1px solid var(--line-strong);background:var(--black2);overflow:hidden;min-height:340px;display:flex;align-items:center}
+.cta-band{position:relative;background:var(--black2);overflow:hidden;min-height:420px;display:flex;align-items:center;padding:0}
 .cta-band-bg{position:absolute;inset:0;z-index:0}
-.cta-band-bg img{width:100%;height:100%;object-fit:cover;opacity:.3}
-.cta-band-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,var(--black2) 0%,rgba(23,20,15,.7) 45%,rgba(23,20,15,.25) 100%)}
-.cta-band-copy{position:relative;z-index:2;padding:48px}
+.cta-band-bg img{width:100%;height:100%;object-fit:cover;opacity:.35}
+.cta-band-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,var(--black2) 0%,rgba(23,20,15,.75) 40%,rgba(23,20,15,.3) 100%)}
+.cta-band-copy{position:relative;z-index:2;padding:48px 0}
 .cta-band-copy p{margin:14px 0 24px;max-width:420px}
-@media(max-width:860px){.cta-band{min-height:0}.cta-band-copy{padding:36px 24px}}
+@media(max-width:860px){.cta-band{min-height:320px}.cta-band-copy{padding:40px 0}}
 
 /* orçamento / briefing */
 .form{border:1px solid var(--line);background:var(--black2);padding:28px;border-radius:4px}
