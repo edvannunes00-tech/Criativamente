@@ -62,9 +62,31 @@
       { src: "img/portfolio/extra/darkart-2.jpg", alt: "Tatuagem dark art em preto e cinza" }
     ]}
   };
+  // ---- popup de portfólio por artista (imagens ilustrativas por estilo, até termos o portfólio real de cada um)
+  var PF_ARTISTS = {
+    caio: { title: "Caio Ramos — Blackwork · Graphic", images: [
+      { src: "img/artistas/caio.jpg", alt: "Caio Ramos, tatuador", real: true },
+      { src: "img/portfolio/extra/darkart-1.jpg", alt: "Tatuagem blackwork" },
+      { src: "img/portfolio/extra/darkart-2.jpg", alt: "Tatuagem blackwork em preto e cinza" }
+    ]},
+    livia: { title: "Lívia Monteiro — Fine line · Floral", images: [
+      { src: "img/artistas/livia.jpg", alt: "Lívia Monteiro, tatuadora", real: true },
+      { src: "img/portfolio/extra/fineline-1.jpg", alt: "Tatuadora aplicando tatuagem fine line" },
+      { src: "img/portfolio/extra/fineline-2.jpg", alt: "Tatuagem fine line floral" }
+    ]},
+    rafael: { title: "Rafael Tanaka — Oriental · Neo tradicional", images: [
+      { src: "img/artistas/rafael.jpg", alt: "Rafael Tanaka, tatuador", real: true },
+      { src: "img/portfolio/extra/oriental-1.jpg", alt: "Tatuagem de dragão em estilo japonês" },
+      { src: "img/portfolio/extra/oriental-2.jpg", alt: "Tatuagem oriental colorida" }
+    ]},
+    bruno: { title: "Bruno Alcântara — Realismo · Black & Grey", images: [
+      { src: "img/artistas/bruno.jpg", alt: "Bruno Alcântara, tatuador", real: true },
+      { src: "img/portfolio/extra/realismo-1.jpg", alt: "Tatuador trabalhando em tatuagem realista" },
+      { src: "img/portfolio/extra/realismo-2.jpg", alt: "Detalhe de tatuagem realista" }
+    ]}
+  };
   var pfModal = $("pfModal"), pfModalGrid = $("pfModalGrid"), pfModalTitle = $("pfModalTitle"), pfModalClose = $("pfModalClose");
-  function openPfModal(key) {
-    var data = PF_STYLES[key];
+  function openPfModal(data) {
     if (!data || !pfModal) return;
     pfModalTitle.textContent = data.title;
     pfModalGrid.innerHTML = "";
@@ -86,10 +108,16 @@
     pfModal.classList.remove("open");
     document.body.style.overflow = "";
   }
-  document.querySelectorAll(".portfolio-tile[data-style]:not([aria-hidden])").forEach(function (tile) {
+  document.querySelectorAll(".portfolio-tile[data-style]").forEach(function (tile) {
     tile.addEventListener("click", function (e) {
       e.preventDefault();
-      openPfModal(tile.getAttribute("data-style"));
+      openPfModal(PF_STYLES[tile.getAttribute("data-style")]);
+    });
+  });
+  document.querySelectorAll(".artist-card[data-artist]").forEach(function (card) {
+    card.addEventListener("click", function (e) {
+      e.preventDefault();
+      openPfModal(PF_ARTISTS[card.getAttribute("data-artist")]);
     });
   });
   if (pfModalClose) pfModalClose.addEventListener("click", closePfModal);
