@@ -1,4 +1,4 @@
-import { GROUPS, redirectTo } from "./_groups.js";
+import { GROUPS, redirectPage } from "./_groups.js";
 export async function onRequest(context) {
-  return redirectTo(GROUPS.casa, context.request);
+  return redirectPage(GROUPS.casa, context.request);
 }
