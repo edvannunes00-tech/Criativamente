@@ -4,6 +4,7 @@
   "use strict";
   var body = document.body;
   var dest = body.getAttribute("data-dest");
+  var nicho = body.getAttribute("data-nicho");
   if (!dest) return;
 
   var url = new URL(dest);
@@ -12,10 +13,18 @@
   });
   var finalUrl = url.toString();
 
+  function fireLead() {
+    if (window.firePromoWhatsLead) window.firePromoWhatsLead(nicho);
+  }
+
   var btn = document.getElementById("go");
-  if (btn) btn.href = finalUrl;
+  if (btn) {
+    btn.href = finalUrl;
+    btn.addEventListener("click", fireLead);
+  }
 
   setTimeout(function () {
+    fireLead();
     window.location.href = finalUrl;
   }, 3000);
 })();
