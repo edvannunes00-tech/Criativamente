@@ -14,14 +14,6 @@
   });
   menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => { menu.classList.remove("open"); burger.classList.remove("open"); }));
 
-  // ---- carrossel do portfólio
-  const pfTrack = $("pfTrack");
-  if (pfTrack) {
-    const step = () => (pfTrack.querySelector(".portfolio-card")?.getBoundingClientRect().width || 280) + 20;
-    $("pfPrev").addEventListener("click", () => pfTrack.scrollBy({ left: -step(), behavior: "smooth" }));
-    $("pfNext").addEventListener("click", () => pfTrack.scrollBy({ left: step(), behavior: "smooth" }));
-  }
-
   document.querySelectorAll(".faq-question").forEach((q) => q.addEventListener("click", () => {
     const item = q.parentElement, was = item.classList.contains("open");
     document.querySelectorAll(".faq-item").forEach((i) => i.classList.remove("open"));
@@ -57,7 +49,7 @@
   if ("IntersectionObserver" in window && !reduce) {
     document.documentElement.classList.add("js");
     const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-    document.querySelectorAll(".process-track, .services-list, .pricing-group, .faq-list, .lead-form-wrap, .process-head, .services-head, .pricing-head, .faq-head, .portfolio-head, .portfolio-wrap").forEach((n) => { n.classList.add("rv"); io.observe(n); });
+    document.querySelectorAll(".process-track, .services-list, .pricing-group, .faq-list, .lead-form-wrap, .process-head, .services-head, .pricing-head, .faq-head, .portfolio-head, .pf-marquee").forEach((n) => { n.classList.add("rv"); io.observe(n); });
     const hero = $("fxHero");
     new IntersectionObserver((es) => es.forEach((e) => hero.classList.toggle("fx-paused", !e.isIntersecting))).observe(hero);
   }
