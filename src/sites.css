@@ -10,6 +10,27 @@
 .form-consent input{margin-top:3px;accent-color:var(--accent)}
 @media (max-width:980px){.pricing-grid.two{grid-template-columns:1fr}}
 
+/* Portfólio — carrossel de sites já publicados */
+.portfolio-head{max-width:680px;margin-bottom:48px}
+.portfolio-headline{font-size:clamp(28px,3.4vw,42px);font-weight:700}
+.portfolio-wrap{position:relative;display:flex;align-items:center;gap:12px}
+.portfolio-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:6px;-ms-overflow-style:none;scrollbar-width:none}
+.portfolio-track::-webkit-scrollbar{display:none}
+.portfolio-card{flex:0 0 clamp(240px,80vw,300px);scroll-snap-align:start;display:block;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--black);text-decoration:none;transition:border-color .2s}
+.portfolio-card:hover{border-color:var(--line-strong)}
+.pf-frame{display:flex;align-items:center;gap:6px;padding:10px 12px;border-bottom:1px solid var(--line)}
+.pf-dot{width:7px;height:7px;border-radius:50%;background:var(--line-strong)}
+.pf-url{margin-left:8px;font-family:var(--font-mono);font-size:10.5px;color:var(--gray-1);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pf-img{aspect-ratio:4/5;overflow:hidden;background:var(--line)}
+.pf-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.portfolio-card:hover .pf-img img{transform:scale(1.04)}
+.pf-info{padding:16px 16px 20px}
+.pf-info h3{font-size:16px;font-weight:700;margin:0 0 4px}
+.pf-info p{font-size:12.5px;color:var(--gray-1)}
+.portfolio-arrow{flex:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--white);font-size:16px;cursor:pointer;transition:border-color .2s,background .2s}
+.portfolio-arrow:hover{border-color:var(--line-strong);background:rgba(245,245,242,.06)}
+@media (max-width:700px){.portfolio-arrow{display:none}}
+
 /* Fundo suave atrás do formulário (estático, sem custo de animação) */
 .lead-form-section{background:radial-gradient(60% 55% at 50% 0%,rgba(156,255,25,.08),transparent 70%),var(--black)}
 .pricing-group .pm-wrap{border:1px solid var(--line);border-radius:22px;padding:28px 24px 8px}
