@@ -85,14 +85,19 @@ header.nav{position:sticky;top:0;z-index:300;background:rgba(13,12,11,.92);borde
 @media(max-width:600px){.grid3,.grid4{grid-template-columns:1fr}}
 
 /* portfólio */
-.portfolio-tile{border:1px solid var(--line);background:var(--black2);overflow:hidden}
+.pf-marquee{position:relative;width:100%;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent 0,black 6%,black 94%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,black 6%,black 94%,transparent 100%)}
+.pf-marquee-track{display:flex;align-items:center;gap:16px;width:max-content;animation:pfMarqueeScroll 32s linear infinite}
+.pf-marquee:hover .pf-marquee-track{animation-play-state:paused}
+@keyframes pfMarqueeScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.pf-marquee-track{animation:none}.pf-marquee{overflow-x:auto}}
+.portfolio-tile{flex:0 0 160px;border:1px solid var(--line);background:var(--black2);overflow:hidden;border-radius:4px}
+.portfolio-tile:hover{border-color:var(--line-strong)}
 .portfolio-tile .ph{aspect-ratio:4/5;overflow:hidden}
 .portfolio-tile img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
 .portfolio-tile:hover img{transform:scale(1.04)}
-.portfolio-tile .info{display:flex;justify-content:space-between;align-items:center;padding:16px 18px}
-.portfolio-tile h3{font-size:15px}
-.portfolio-tile p{font-size:12.5px;margin:3px 0 0;color:var(--muted2)}
-.portfolio-tile .arrow{color:var(--cyan);font-size:18px}
+.portfolio-tile .info{padding:10px 12px}
+.portfolio-tile h3{font-size:12.5px;font-weight:600}
+@media(max-width:700px){.portfolio-tile{flex-basis:128px}}
 
 /* artistas */
 .artist-card{overflow:hidden}
