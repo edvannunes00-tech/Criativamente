@@ -124,15 +124,15 @@
   if (pfModal) pfModal.addEventListener("click", function (e) { if (e.target === pfModal) closePfModal(); });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") closePfModal(); });
 
-  // ---- briefing -> WhatsApp
-  var WA_PHONE = "5511987277235";
+  // ---- briefing -> WhatsApp (prévia: envia pra Criativamente, não pro estúdio real)
+  var WA_PHONE = "5511920920884";
   var enviar = $("bEnviar"), summary = $("formSummary");
   if (enviar) {
     enviar.addEventListener("click", function () {
       var regiao = $("bRegiao").value, tamanho = $("bTamanho").value, cor = $("bCor").value,
         estilo = $("bEstilo").value, nome = $("bNome").value.trim(), obs = $("bObs").value.trim();
 
-      var linhas = ["Olá! Gostaria de um orçamento de tattoo. Meu briefing:"];
+      var linhas = ["Olá! Vi essa prévia de site para estúdio de tattoo e quero saber mais. Exemplo de briefing preenchido:"];
       if (nome) linhas.push("Nome: " + nome);
       if (regiao) linhas.push("Região: " + regiao);
       if (tamanho) linhas.push("Tamanho: " + tamanho);
