@@ -75,8 +75,8 @@ header.nav{position:sticky;top:0;z-index:300;background:rgba(13,12,11,.92);borde
 .hero-corner{position:absolute;z-index:2;bottom:28px;font:500 10.5px var(--font-body);letter-spacing:.12em;text-transform:uppercase;color:var(--muted2);line-height:1.6}
 .hero-corner.left{left:28px;text-align:left}
 .hero-corner.right{right:28px;text-align:right}
-@media(max-width:900px){.hero{min-height:100vh}.hero-art img{width:130%;max-width:none}.hero-copy{padding:90px 20px 50px;max-width:none}.hero-corner{display:none}}
-@media(max-width:480px){.hero-art img{width:170%}}
+@media(max-width:900px){.hero{min-height:100vh}.hero-art img{width:108%;max-width:none}.hero-copy{padding:90px 20px 50px;max-width:none}.hero-corner{display:none}.hero:before{background:radial-gradient(ellipse 70% 75% at 50% 48%,rgba(13,12,11,.88) 0%,rgba(13,12,11,.7) 45%,rgba(13,12,11,.3) 80%)}.hero-lead{background:rgba(13,12,11,.55);border-radius:4px;padding:10px 14px;margin-left:-14px;margin-right:-14px}}
+@media(max-width:480px){.hero-art img{width:124%}}
 
 /* grids genéricos */
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -84,7 +84,7 @@ header.nav{position:sticky;top:0;z-index:300;background:rgba(13,12,11,.92);borde
 .grid2{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
 .grid2.reverse{grid-template-columns:.8fr 1.2fr}
 @media(max-width:900px){.grid3,.grid4{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr;gap:28px}}
-@media(max-width:600px){.grid3,.grid4{grid-template-columns:1fr}}
+@media(max-width:600px){.grid3{grid-template-columns:1fr}}
 
 /* portfólio */
 .pf-marquee{position:relative;width:100%;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent 0,black 6%,black 94%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,black 6%,black 94%,transparent 100%)}
@@ -103,7 +103,7 @@ header.nav{position:sticky;top:0;z-index:300;background:rgba(13,12,11,.92);borde
 
 /* artistas */
 .artist-card{overflow:hidden;text-align:center}
-.artist-card .ph{width:132px;height:132px;max-width:60%;aspect-ratio:1;overflow:hidden;border:1px solid var(--line);border-radius:50%;margin:0 auto}
+.artist-card .ph{width:132px;max-width:60%;aspect-ratio:1;overflow:hidden;border:1px solid var(--line);border-radius:50%;margin:0 auto}
 .artist-card img{width:100%;height:100%;object-fit:cover;filter:grayscale(.1)}
 .artist-card .info{padding-top:14px}
 .artist-card h3{font-size:15px;margin-bottom:4px}
@@ -116,6 +116,12 @@ header.nav{position:sticky;top:0;z-index:300;background:rgba(13,12,11,.92);borde
 .founder-photo img{width:100%;height:100%;object-fit:cover}
 .founder-photo.ph-empty img{display:none}
 .founder-photo.ph-empty:after{content:"Foto do fundador — em breve";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;font:500 12px var(--font-body);color:var(--muted2);letter-spacing:.04em}
+@media(max-width:900px){
+  #sobre .grid2.reverse{display:block}
+  #sobre .founder-text{display:contents}
+  #sobre .founder-photo{float:left;width:42%;margin:0 16px 14px 0}
+  #sobre .founder-text h2{margin-top:0}
+}
 .badge{display:inline-block;border:1px solid var(--line-strong);padding:7px 11px;color:var(--muted2);font:500 10px var(--font-body);letter-spacing:.08em}
 .hero-badges{display:flex;flex-wrap:wrap;gap:8px}
 
@@ -129,8 +135,8 @@ header.nav{position:sticky;top:0;z-index:300;background:rgba(13,12,11,.92);borde
 /* cta band */
 .cta-band{position:relative;background:var(--black2);overflow:hidden;min-height:420px;display:flex;align-items:center;padding:0}
 .cta-band-bg{position:absolute;inset:0;z-index:0}
-.cta-band-bg img{width:100%;height:100%;object-fit:cover;opacity:.35}
-.cta-band-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,var(--black2) 0%,rgba(23,20,15,.75) 40%,rgba(23,20,15,.3) 100%)}
+.cta-band-bg img{width:100%;height:100%;object-fit:cover;opacity:.55}
+.cta-band-bg:after{content:"";position:absolute;inset:0;background:radial-gradient(85% 120% at 24% 50%,rgba(23,20,15,.92) 0%,rgba(23,20,15,.72) 38%,rgba(23,20,15,.4) 65%,rgba(23,20,15,.15) 100%)}
 .cta-band-copy{position:relative;z-index:2;padding:48px 0}
 .cta-band-copy p{margin:14px 0 24px;max-width:420px}
 @media(max-width:860px){.cta-band{min-height:320px}.cta-band-copy{padding:40px 0}}
