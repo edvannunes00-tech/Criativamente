@@ -13,18 +13,29 @@
   });
   var finalUrl = url.toString();
 
-  function fireLead() {
+  var navigated = false;
+  function goNow() {
+    if (navigated) return;
+    navigated = true;
+    window.location.href = finalUrl;
+  }
+
+  // Dá uma folga depois de disparar o Lead antes de navegar de verdade —
+  // senão o navegador corta a requisição do pixel no meio, por já estar
+  // saindo da página.
+  function fireLeadThenGo() {
     if (window.firePromoWhatsLead) window.firePromoWhatsLead(nicho);
+    setTimeout(goNow, 300);
   }
 
   var btn = document.getElementById("go");
   if (btn) {
     btn.href = finalUrl;
-    btn.addEventListener("click", fireLead);
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      fireLeadThenGo();
+    });
   }
 
-  setTimeout(function () {
-    fireLead();
-    window.location.href = finalUrl;
-  }, 3000);
+  setTimeout(fireLeadThenGo, 3000);
 })();
