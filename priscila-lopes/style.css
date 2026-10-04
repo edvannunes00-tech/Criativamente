@@ -76,17 +76,17 @@ p{margin:0 0 16px;color:#4a4540}
 
 /* hero split */
 .hero{padding:150px 0 80px;overflow:hidden}
-.hero-grid{display:grid;grid-template-columns:1fr 1.08fr;gap:18px;align-items:center;position:relative}
-.hero-grid::before{content:"";position:absolute;top:6%;bottom:10%;left:calc(50% - 1px);width:1px;background:linear-gradient(180deg,transparent,var(--dourado) 18%,var(--dourado) 82%,transparent);opacity:.55;z-index:1}
-.hero-copy{position:relative;z-index:2}
-.hero h1{font-size:clamp(30px,4.3vw,56px)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;position:relative}
+.hero-grid::before{content:"";position:absolute;top:50%;left:calc(50% - 170px);width:340px;height:340px;border:1px solid var(--dourado);border-radius:50%;opacity:.4;transform:translateY(-50%);z-index:1;pointer-events:none}
+.hero-copy{position:relative;z-index:2;max-width:540px}
+.hero h1{font-size:clamp(28px,3.6vw,48px)}
 .hero h1 em{font-style:italic;color:var(--marsala);font-weight:600}
 .hero .ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
 .hero .lead{font-size:17.5px;max-width:460px}
 .hero-more{display:inline-flex;align-items:center;gap:10px;margin-top:46px;font-family:var(--sans);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:#8a7a70;text-decoration:none}
 .hero-more em{font-style:normal;color:var(--dourado);transition:transform .3s var(--ease)}
 .hero-more:hover em{transform:translateY(3px)}
-.hero-ph{position:relative;border-radius:4px;overflow:hidden;aspect-ratio:4/5;margin-left:-38px;box-shadow:0 30px 60px -30px rgba(41,37,34,.35)}
+.hero-ph{position:relative;border-radius:4px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 30px 60px -30px rgba(41,37,34,.35);z-index:2}
 .hero-ph img{width:100%;height:100%;object-fit:cover;object-position:75% 15%;display:block}
 .hero-tags{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 20px;display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;background:linear-gradient(180deg,transparent,rgba(41,20,24,.78) 70%)}
 .hero-tag{color:var(--off-white);font-size:12px;font-weight:600;letter-spacing:.03em;text-transform:uppercase}
