@@ -149,14 +149,14 @@ p{margin:0 0 16px;color:#4a4540}
 .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
 
 .service-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-.service-card{display:flex;flex-direction:column;align-items:center;text-align:center;justify-content:space-between;gap:22px;height:100%;min-height:340px;padding:40px 36px;background:var(--branco);border:1px solid #29252212;border-radius:14px;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.service-card{display:flex;flex-direction:column;align-items:center;text-align:center;justify-content:space-between;gap:18px;height:100%;min-height:240px;padding:28px 26px;background:var(--branco);border:1px solid #29252212;border-radius:14px;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease)}
 .service-card:hover{transform:translateY(-5px);box-shadow:0 22px 40px -20px #0003;border-color:rgba(122,48,64,.25)}
 .service-card .sc-body{max-width:100%;display:flex;flex-direction:column;align-items:center}
-.service-card .sc-icon{width:34px;height:34px;color:var(--marsala);margin-bottom:16px}
-.service-card .sc-body .eyebrow{color:var(--marsala);transition:letter-spacing .3s var(--ease)}
-.service-card:hover .sc-body .eyebrow{letter-spacing:.2em}
-.service-card .sc-body h2{font-size:clamp(22px,2.4vw,28px);font-weight:600;margin:6px 0 12px}
-.service-card .sc-body p{margin:0;color:#413c38;font-size:15.5px;line-height:1.6}
+.service-card .sc-icon{width:28px;height:28px;color:var(--marsala);margin-bottom:12px}
+.service-card .sc-body h2{font-size:clamp(19px,1.8vw,22px);font-weight:600;margin:0 0 10px;transition:letter-spacing .3s var(--ease)}
+.service-card .sc-arrow{color:var(--dourado);transition:transform .3s var(--ease);display:inline-block}
+.service-card:hover .sc-arrow{transform:translateX(4px)}
+.service-card .sc-body p{margin:0;color:#413c38;font-size:14px;line-height:1.55}
 .service-card .sc-btn{flex:none;white-space:nowrap}
 
 /* path cards (atendimentos/palestras/cursos/mentoria) */
