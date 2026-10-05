@@ -144,11 +144,11 @@ p{margin:0 0 16px;color:#4a4540}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
 .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
 
-.service-cards{display:flex;flex-direction:column;gap:18px}
-.service-card{display:flex;align-items:center;justify-content:space-between;gap:40px;padding:38px 40px;background:var(--branco);border:1px solid #29252212;border-radius:14px;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.service-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.service-card{display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:22px;height:100%;padding:38px 36px;background:var(--branco);border:1px solid #29252212;border-radius:14px;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
 .service-card:hover{transform:translateY(-3px);box-shadow:0 20px 38px -22px #0002}
-.service-card .sc-body{max-width:640px}
-.service-card .sc-body h2{font-size:clamp(22px,2.4vw,30px);margin:6px 0 10px}
+.service-card .sc-body{max-width:100%}
+.service-card .sc-body h2{font-size:clamp(22px,2.4vw,28px);margin:6px 0 10px}
 .service-card .sc-body p{margin:0;color:#514b47}
 .service-card .sc-btn{flex:none;white-space:nowrap}
 
@@ -286,6 +286,7 @@ footer a:hover{color:var(--dourado)}
   .wa-float svg{width:23px;height:23px}
 
   /* cards de serviço empilhados */
+  .service-cards{grid-template-columns:1fr}
   .service-card{flex-direction:column;align-items:flex-start;gap:16px;padding:28px 24px;border-radius:12px}
   .service-card .sc-body{max-width:100%}
   .sc-btn{width:100%;text-align:center}
