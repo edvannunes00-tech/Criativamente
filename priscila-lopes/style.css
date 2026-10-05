@@ -141,6 +141,9 @@ p{margin:0 0 16px;color:#4a4540}
 .sec.dark h2,.sec.dark h3{color:var(--off-white)}
 .sec.dark p{color:#f7f3ecc5}
 .sec-head{max-width:660px;margin:0 auto 50px;text-align:center}
+.caminhos-head{max-width:720px}
+.caminhos-head h2{font-size:clamp(22px,2.6vw,32px);white-space:nowrap}
+@media(max-width:620px){.caminhos-head h2{white-space:normal}}
 .sec-head.left{margin:0 0 46px;text-align:left}
 
 /* grid helpers */
