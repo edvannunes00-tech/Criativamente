@@ -45,6 +45,28 @@
     });
   });
 
+  // popup "Sobre mim" (mobile)
+  var sobreAbrir = document.getElementById('sobreAbrir');
+  var sobreModal = document.getElementById('sobreModal');
+  var sobreModalClose = document.getElementById('sobreModalClose');
+  var sobreTexto = document.getElementById('sobreTexto');
+  var sobreModalTexto = document.getElementById('sobreModalTexto');
+  function abrirSobreModal(){
+    if(!sobreModal) return;
+    if(sobreModalTexto && sobreTexto) sobreModalTexto.innerHTML = sobreTexto.innerHTML;
+    sobreModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function fecharSobreModal(){
+    if(!sobreModal) return;
+    sobreModal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  if(sobreAbrir) sobreAbrir.addEventListener('click', abrirSobreModal);
+  if(sobreModalClose) sobreModalClose.addEventListener('click', fecharSobreModal);
+  if(sobreModal) sobreModal.addEventListener('click', function(e){ if(e.target === sobreModal) fecharSobreModal(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') fecharSobreModal(); });
+
   // reveal on scroll
   var reveals = document.querySelectorAll('.reveal');
   if('IntersectionObserver' in window && reveals.length){
