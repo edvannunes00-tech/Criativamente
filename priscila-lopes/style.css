@@ -255,7 +255,7 @@ p{margin:0 0 16px;color:#4a4540}
   .split-hero-copy h1{font-size:clamp(28px,8vw,38px)}
   .split-hero-copy .ctas{flex-direction:column}
   .split-hero-copy .ctas .btn{width:100%;justify-content:center}
-  .split-hero-ph{aspect-ratio:3/4}
+  .split-hero-ph{aspect-ratio:1/1}
   .split-hero-tags{padding:14px 8px}
   .split-hero-tag{font-size:8.5px;letter-spacing:.04em;padding:4px 7px}
   .split-hero-sep{height:10px}
