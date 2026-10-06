@@ -248,14 +248,17 @@ p{margin:0 0 16px;color:#4a4540}
 .split-hero-sep{width:1px;height:12px;background:rgba(255,255,255,.3)}
 @media(max-width:900px){
   .split-hero-grid{grid-template-columns:1fr;gap:34px}
-  .split-hero-ph{order:-1;aspect-ratio:16/11}
+  .split-hero-ph{order:-1;aspect-ratio:4/5}
 }
 @media(max-width:600px){
-  .split-hero{padding:118px 0 60px}
+  .split-hero{padding:118px 0 40px}
   .split-hero-copy h1{font-size:clamp(28px,8vw,38px)}
   .split-hero-copy .ctas{flex-direction:column}
   .split-hero-copy .ctas .btn{width:100%;justify-content:center}
-  .split-hero-tag{font-size:10px;padding:4px 10px}
+  .split-hero-ph{aspect-ratio:3/4}
+  .split-hero-tags{padding:14px 8px}
+  .split-hero-tag{font-size:8.5px;letter-spacing:.04em;padding:4px 7px}
+  .split-hero-sep{height:10px}
 }
 
 .card-center{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:90px}
