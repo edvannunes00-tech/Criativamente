@@ -122,6 +122,14 @@ p{margin:0 0 16px;color:#4a4540}
 .page-hero{padding:150px 0 70px;background:var(--bege)}
 .page-hero .wrap{max-width:720px}
 
+/* page hero — título em linha única + subtítulo centralizado */
+.page-hero.split{text-align:center}
+.page-hero.split .wrap{max-width:680px}
+.ph-title{font-family:var(--serif);font-weight:600;color:var(--texto);white-space:nowrap;font-size:clamp(19px,4.8vw,52px);letter-spacing:-.5px;margin:0}
+.ph-subtitle{margin:12px 0 0;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--dourado);font-weight:600}
+.ph-lead{margin:22px auto 0;max-width:560px;color:#4e4945;font-size:16px;line-height:1.6}
+.page-hero.split .btn{margin-top:28px}
+
 /* photo placeholders */
 .ph{position:relative;border-radius:6px;overflow:hidden;background:linear-gradient(135deg,#8a4454,var(--marsala-escuro));aspect-ratio:4/5;display:flex;align-items:center;justify-content:center}
 .ph::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,#ffffff0a 0 2px,transparent 2px 36px)}
@@ -190,9 +198,15 @@ p{margin:0 0 16px;color:#4a4540}
 .tl-step p{margin:0;font-size:14.5px}
 
 /* info cards grid (modalidade/duração/etc) */
-.info-card{background:var(--bege);border:1px solid #29252214;border-radius:6px;padding:22px;text-align:center}
-.info-card .lbl{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--dourado);font-weight:600;margin-bottom:8px}
+.info-card{background:var(--bege);border:1px solid #29252214;border-radius:10px;padding:26px 22px;text-align:center;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.info-card:hover{transform:translateY(-3px);box-shadow:0 16px 30px -22px #0004}
+.info-card .lbl{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--dourado);font-weight:600;margin-bottom:10px}
 .info-card .val{font-family:var(--serif);font-size:17px;color:var(--texto)}
+.info-card .ic-icon{width:26px;height:26px;color:var(--marsala);margin:0 auto 12px}
+.info-card .ic-icons{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:14px}
+.info-card .ic-icons svg{width:30px;height:30px;display:block}
+.info-card .ic-note{font-size:12.5px;color:#8a7a70;margin-top:6px}
+.info-card .btn{margin-top:4px}
 
 /* FAQ */
 .faq .q{border-bottom:1px solid #29252222}
@@ -201,6 +215,14 @@ p{margin:0 0 16px;color:#4a4540}
 .faq .q.open button::after{transform:rotate(45deg)}
 .faq .a{max-height:0;overflow:hidden;transition:max-height .3s var(--ease)}
 .faq .a p{padding-bottom:20px;color:#4a4540;font-size:14.5px;margin:0}
+
+/* FAQ estilo card (textos de abertura/sensibilização) */
+.faq-cards{display:flex;flex-direction:column;gap:16px}
+.faq-cards .q{background:var(--branco);border:1px solid #29252212;border-radius:14px;padding:4px 28px;border-bottom:1px solid #29252212;box-shadow:0 4px 18px -16px #0002;transition:box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.faq-cards .q.open{border-color:rgba(122,48,64,.22);box-shadow:0 18px 34px -22px #0003}
+.faq-cards button{font-weight:600;font-size:17.5px;padding:24px 0}
+.faq-cards .a p{font-size:15px;line-height:1.7}
+.faq-cards .a p+p{margin-top:14px}
 
 /* quote block */
 .quote{background:var(--marsala);color:var(--off-white);border-radius:6px;padding:40px;text-align:center}
@@ -320,4 +342,6 @@ footer a:hover{color:var(--dourado)}
   .row2{grid-template-columns:1fr}
   .foot-grid{grid-template-columns:1fr}
   .tl-step{grid-template-columns:40px 1fr;gap:14px}
+  .faq-cards .q{padding:4px 20px}
+  .faq-cards button{font-size:16px;padding:20px 0}
 }
