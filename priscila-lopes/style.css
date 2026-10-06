@@ -261,7 +261,7 @@ footer a:hover{color:var(--dourado)}
   .sobre-abrir{display:inline-flex;margin-top:18px}
   .sobre-texto{display:none}
   /* header */
-  .top{position:relative;background:var(--off-white);border-bottom:1px solid rgba(84,32,44,.06)}
+  .top{position:fixed;background:var(--off-white);border-bottom:1px solid rgba(84,32,44,.06)}
   .top-in{height:88px;padding:0 22px;display:flex;align-items:center;justify-content:space-between}
   .brand{display:flex;flex-direction:column;justify-content:center;max-width:calc(100% - 70px);gap:5px}
   .brand-name{display:block;font-family:var(--serif);font-size:27px;line-height:1;letter-spacing:.2px;color:var(--texto);text-transform:none;font-weight:600}
@@ -269,7 +269,7 @@ footer a:hover{color:var(--dourado)}
   .burger{display:flex;width:46px;height:46px;flex-shrink:0;align-items:center;justify-content:center;border:1px solid #d3c8bb;border-radius:5px;background:transparent}
 
   /* hero */
-  .hero{min-height:auto;overflow:hidden;background:var(--off-white);padding:0}
+  .hero{min-height:auto;overflow:hidden;background:var(--off-white);padding:88px 0 0}
   .hero-editorial{width:100%;min-height:auto;display:flex;flex-direction:column}
 
   .hero-copy{width:100%;margin:0;padding:42px 24px 34px;box-sizing:border-box}
@@ -313,6 +313,7 @@ footer a:hover{color:var(--dourado)}
 }
 @media(max-width:620px){
   .top-in{height:68px}
+  .hero{padding-top:68px}
   .page-hero{padding:120px 0 50px}
   .sec{padding:60px 0}
   .grid-3,.grid-4{grid-template-columns:1fr}
