@@ -29,6 +29,10 @@ p{margin:0 0 16px;color:#4a4540}
 .btn{display:inline-flex;align-items:center;gap:8px;background:var(--marsala);color:var(--off-white);text-decoration:none;font-weight:600;font-size:14.5px;padding:15px 28px;border-radius:4px;border:1px solid var(--marsala);transition:background .25s var(--ease),transform .25s var(--ease)}
 
 .sobre-abrir{display:none;cursor:pointer;font-family:var(--sans)}
+#sobreAbrir{background:var(--marsala);border-color:var(--marsala);color:#fff;animation:sobrePulse 2.6s ease-in-out infinite}
+#sobreAbrir:hover{background:var(--marsala-escuro);border-color:var(--marsala-escuro)}
+@keyframes sobrePulse{0%,100%{box-shadow:0 0 0 0 rgba(122,48,64,.4)}50%{box-shadow:0 0 0 9px rgba(122,48,64,0)}}
+@media(prefers-reduced-motion:reduce){#sobreAbrir{animation:none}}
 .sobre-modal{position:fixed;inset:0;z-index:400;background:rgba(41,37,34,.6);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;visibility:hidden;transition:opacity .25s var(--ease),visibility 0s linear .25s}
 .sobre-modal.open{opacity:1;visibility:visible;transition:opacity .25s var(--ease)}
 .sobre-modal-box{position:relative;max-width:560px;max-height:85vh;overflow-y:auto;background:var(--off-white);border-radius:10px;padding:36px 28px}
@@ -125,7 +129,7 @@ p{margin:0 0 16px;color:#4a4540}
 /* page hero — título em linha única + subtítulo centralizado */
 .page-hero.split{text-align:center}
 .page-hero.split .wrap{max-width:680px}
-.ph-title{font-family:var(--serif);font-weight:600;color:var(--texto);white-space:nowrap;font-size:clamp(19px,4.8vw,52px);letter-spacing:-.5px;margin:0}
+.ph-title{font-family:var(--serif);font-weight:600;color:var(--texto);white-space:nowrap;font-size:clamp(30px,7.2vw,52px);letter-spacing:-.5px;margin:0}
 .ph-subtitle{margin:12px 0 0;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--dourado);font-weight:600}
 .ph-lead{margin:22px auto 0;max-width:560px;color:#4e4945;font-size:16px;line-height:1.6}
 .page-hero.split .btn{margin-top:28px}
@@ -280,7 +284,7 @@ footer a:hover{color:var(--dourado)}
   .foot-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:768px){
-  .sobre-abrir{display:inline-flex;margin-top:18px}
+  .sobre-abrir{display:flex;margin:22px auto 0;width:fit-content}
   .sobre-texto{display:none}
   /* header */
   .top{position:fixed;background:var(--off-white);border-bottom:1px solid rgba(84,32,44,.06)}
