@@ -478,7 +478,7 @@ footer a.ic-link:hover svg{opacity:1}
   .page-hero{padding:120px 0 50px}
   .sec{padding:60px 0}
   .grid-3,.grid-4{grid-template-columns:1fr}
-  .temas-grid{grid-template-columns:repeat(2,1fr)!important;gap:12px}
+  .temas-grid{grid-template-columns:repeat(2,1fr)!important;gap:12px;padding:0 14px}
   .temas-grid .info-card{padding:18px 12px;height:96px}
   .temas-grid .info-card .val{font-size:14px}
   .row2{grid-template-columns:1fr}
