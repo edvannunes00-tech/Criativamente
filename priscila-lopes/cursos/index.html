@@ -37,7 +37,7 @@
       <h1>Conhecimento que amplia o olhar e transforma a maneira como compreendemos a nós mesmos e ao outro.</h1>
       <p class="lead">Conheça os cursos disponíveis e encontre conteúdos estruturados para aprofundar conhecimentos e desenvolver novas perspectivas.</p>
       <div class="ctas">
-        <a class="btn gold" href="https://api.whatsapp.com/send?phone=5512981812472&text=Ol%C3%A1%2C%20Priscila%21%20Gostaria%20de%20saber%20mais%20sobre%20os%20cursos." target="_blank" rel="noopener">Quero receber novidades</a>
+        <button type="button" class="btn gold waitlist-open">Quero receber novidades</button>
       </div>
     </div>
     <div class="split-hero-ph reveal">
@@ -52,7 +52,7 @@
     <article class="path-card reveal" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:60px 30px">
       <h3 style="margin-top:10px">Novos cursos estão em desenvolvimento.</h3>
       <p>Seja a primeira a saber quando lançarmos.</p>
-      <a class="btn outline sm" href="https://api.whatsapp.com/send?phone=5512981812472&text=Ol%C3%A1%2C%20Priscila%21%20Gostaria%20de%20saber%20mais%20sobre%20os%20cursos." target="_blank" rel="noopener">Quero receber novidades</a>
+      <button type="button" class="btn outline sm waitlist-open">Quero receber novidades</button>
     </article>
   </div>
 </section>
@@ -172,10 +172,97 @@
   <div class="wrap">
     <h2>Conheça os cursos.</h2>
     <p>Entre o que você já sabe e o que ainda pode desenvolver, existe um caminho.</p>
-    <div class="ctas"><a class="btn gold" href="https://api.whatsapp.com/send?phone=5512981812472&text=Ol%C3%A1%2C%20Priscila%21%20Gostaria%20de%20saber%20mais%20sobre%20os%20cursos." target="_blank" rel="noopener">Fale comigo</a></div>
+    <div class="ctas"><button type="button" class="btn gold waitlist-open">Quero receber novidades</button></div>
   </div>
 </section>
 </main>
+
+<div class="sobre-modal" id="waitlistModal">
+  <div class="sobre-modal-box waitlist-box">
+    <button type="button" class="sobre-modal-close" id="waitlistClose" aria-label="Fechar">✕</button>
+    <h3>Entre para a lista de espera</h3>
+    <p class="waitlist-lead">Deixe seus dados e avisamos você assim que um novo curso estiver disponível.</p>
+    <form id="waitlistForm" class="waitlist-form">
+      <label>Nome
+        <input type="text" name="nome" required>
+      </label>
+      <label>WhatsApp
+        <input type="tel" name="whatsapp" required placeholder="(12) 90000-0000">
+      </label>
+      <label>E-mail
+        <input type="email" name="email" required>
+      </label>
+      <label>Você é
+        <select name="perfil" required>
+          <option value="" disabled selected>Selecione</option>
+          <option value="Profissional/Terapeuta">Profissional / Terapeuta</option>
+          <option value="Paciente">Paciente</option>
+        </select>
+      </label>
+      <button type="submit" class="btn gold">Quero entrar na lista</button>
+      <p class="waitlist-msg" id="waitlistMsg"></p>
+    </form>
+  </div>
+</div>
+
+<script>
+(function(){
+  var SHEETS_URL = 'https://script.google.com/macros/s/SUBSTITUA_PELO_SEU_ID/exec';
+  var modal = document.getElementById('waitlistModal');
+  var closeBtn = document.getElementById('waitlistClose');
+  var form = document.getElementById('waitlistForm');
+  var msg = document.getElementById('waitlistMsg');
+  function abrir(){
+    if(!modal) return;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function fechar(){
+    if(!modal) return;
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.waitlist-open').forEach(function(btn){
+    btn.addEventListener('click', abrir);
+  });
+  if(closeBtn) closeBtn.addEventListener('click', fechar);
+  if(modal) modal.addEventListener('click', function(e){ if(e.target === modal) fechar(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') fechar(); });
+
+  if(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var submitBtn = form.querySelector('button[type="submit"]');
+      var data = {
+        nome: form.nome.value.trim(),
+        whatsapp: form.whatsapp.value.trim(),
+        email: form.email.value.trim(),
+        perfil: form.perfil.value
+      };
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando...';
+      fetch(SHEETS_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {'Content-Type': 'text/plain;charset=utf-8'},
+        body: JSON.stringify(data)
+      }).then(function(){
+        msg.textContent = 'Recebemos seus dados! Avisaremos você assim que um novo curso estiver disponível.';
+        msg.className = 'waitlist-msg show ok';
+        form.reset();
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Quero entrar na lista';
+        setTimeout(fechar, 2200);
+      }).catch(function(){
+        msg.textContent = 'Não foi possível enviar agora. Tente novamente em instantes.';
+        msg.className = 'waitlist-msg show err';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Quero entrar na lista';
+      });
+    });
+  }
+})();
+</script>
 
 <footer>
   <div class="wrap">

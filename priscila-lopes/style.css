@@ -41,6 +41,19 @@ p{margin:0 0 16px;color:#4a4540}
 .sobre-modal-box h3{font-size:22px;margin:0 0 16px;padding-right:30px}
 .sobre-modal-texto p{font-size:14.5px;line-height:1.65;color:#514b47;margin:0 0 14px}
 .sobre-modal-close{position:absolute;top:16px;right:16px;width:34px;height:34px;border:1px solid #29252222;border-radius:50%;background:transparent;color:var(--texto);cursor:pointer;font-size:14px}
+
+.waitlist-box{max-width:440px}
+.waitlist-box p.waitlist-lead{font-size:14px;color:#6b6059;margin:0 0 22px}
+.waitlist-form{display:flex;flex-direction:column;gap:14px}
+.waitlist-form label{display:flex;flex-direction:column;gap:6px;font-size:12.5px;letter-spacing:.03em;color:#6b6059;font-weight:600;font-family:var(--sans)}
+.waitlist-form input,.waitlist-form select{font-family:var(--sans);font-size:14.5px;padding:12px 13px;border:1px solid #29252222;border-radius:6px;background:var(--branco);color:var(--texto);width:100%}
+.waitlist-form input:focus,.waitlist-form select:focus{outline:none;border-color:var(--dourado)}
+.waitlist-form button[type="submit"]{width:100%;justify-content:center;border:1px solid var(--dourado);margin-top:4px;cursor:pointer}
+.waitlist-form button[type="submit"]:disabled{opacity:.6;cursor:default}
+.waitlist-msg{font-size:13.5px;margin:12px 0 0;display:none}
+.waitlist-msg.show{display:block}
+.waitlist-msg.ok{color:#2e7d32}
+.waitlist-msg.err{color:#b3261e}
 .btn:hover{background:var(--marsala-escuro);border-color:var(--marsala-escuro);transform:translateY(-1px)}
 .btn.gold{background:var(--dourado);border-color:var(--dourado);color:var(--marsala-escuro)}
 .btn.gold:hover{background:#a38148;border-color:#a38148}
