@@ -28,6 +28,8 @@ p{margin:0 0 16px;color:#4a4540}
 .narrow{max-width:620px}
 .btn{display:inline-flex;align-items:center;gap:8px;background:var(--marsala);color:var(--off-white);text-decoration:none;font-weight:600;font-size:14.5px;padding:15px 28px;border-radius:4px;border:1px solid var(--marsala);transition:background .25s var(--ease),transform .25s var(--ease)}
 
+.sobre-citacao{font-family:var(--serif);font-style:italic;color:var(--marsala);font-size:14.5px;line-height:1.65;margin:18px 0 0}
+
 .sobre-abrir{display:none;cursor:pointer;font-family:var(--sans)}
 #sobreAbrir{background:var(--marsala);border-color:var(--marsala);color:#fff;animation:sobrePulse 2.6s ease-in-out infinite}
 #sobreAbrir:hover{background:var(--marsala-escuro);border-color:var(--marsala-escuro)}
