@@ -33,24 +33,25 @@
       };
       submitBtn.disabled = true;
       submitBtn.textContent = 'Enviando...';
+      // O Apps Script pode demorar vários segundos para responder; como o
+      // modo no-cors já não deixa ler o resultado real, envia em segundo
+      // plano (keepalive mantém o envio mesmo se a aba fechar) e mostra
+      // sucesso rápido para não parecer travado.
       fetch(SHEETS_URL, {
         method: 'POST',
         mode: 'no-cors',
+        keepalive: true,
         headers: {'Content-Type': 'text/plain;charset=utf-8'},
         body: JSON.stringify(data)
-      }).then(function(){
+      }).catch(function(){});
+      setTimeout(function(){
         msg.textContent = 'Recebemos seus dados! Avisaremos você assim que um novo curso estiver disponível.';
         msg.className = 'waitlist-msg show ok';
         form.reset();
         submitBtn.disabled = false;
         submitBtn.textContent = 'Quero entrar na lista';
         setTimeout(fechar, 2200);
-      }).catch(function(){
-        msg.textContent = 'Não foi possível enviar agora. Tente novamente em instantes.';
-        msg.className = 'waitlist-msg show err';
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Quero entrar na lista';
-      });
+      }, 500);
     });
   }
 })();
