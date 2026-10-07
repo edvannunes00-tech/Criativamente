@@ -30,7 +30,10 @@ p{margin:0 0 16px;color:#4a4540}
 
 .sobre-citacao{font-family:var(--serif);font-style:italic;color:var(--marsala);font-size:14.5px;line-height:1.65;margin:18px 0 0}
 
-.sobre-abrir{display:none;cursor:pointer;font-family:var(--sans)}
+.sobre-abrir{display:flex;margin:22px 0 0;width:fit-content;cursor:pointer;font-family:var(--sans)}
+.sobre-texto{display:none}
+.sobre-modal-ph{width:132px;height:132px;border-radius:50%;overflow:hidden;margin:0 auto 20px}
+.sobre-modal-ph img{width:100%;height:100%;object-fit:cover;display:block}
 #sobreAbrir{background:var(--marsala);border-color:var(--marsala);color:#fff;animation:sobrePulse 2.6s ease-in-out infinite}
 #sobreAbrir:hover{background:var(--marsala-escuro);border-color:var(--marsala-escuro)}
 @keyframes sobrePulse{0%,100%{box-shadow:0 0 0 0 rgba(122,48,64,.4)}50%{box-shadow:0 0 0 9px rgba(122,48,64,0)}}
@@ -380,8 +383,7 @@ footer a.ic-link:hover svg{opacity:1}
   .foot-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:768px){
-  .sobre-abrir{display:flex;margin:22px auto 0;width:fit-content}
-  .sobre-texto{display:none}
+  .sobre-abrir{margin:22px auto 0}
   /* header */
   .top{position:fixed;background:var(--off-white);border-bottom:1px solid rgba(84,32,44,.06)}
   .top-in{height:88px;padding:0 22px;display:flex;align-items:center;justify-content:space-between}
