@@ -135,12 +135,12 @@ a { text-decoration: none; color: inherit; }
 }
 
 .nm-avatar {
-  width: 76px;
-  height: 76px;
-  border-radius: 50%;
+  width: 124px;
+  height: 158px;
   object-fit: cover;
-  margin-bottom: 16px;
-  box-shadow: 0 0 0 3px var(--black), 0 0 0 4px var(--accent), 0 12px 30px rgba(0,0,0,.5);
+  margin-bottom: 14px;
+  border-radius: 20px;
+  box-shadow: 0 0 0 1px rgba(245,245,242,.06), 0 0 34px 10px rgba(230,166,201,.35), 0 14px 28px rgba(0,0,0,.45);
 }
 
 .nm-name {
@@ -296,7 +296,7 @@ a { text-decoration: none; color: inherit; }
 
 @media (min-width: 640px) {
   .nm-card { max-width: 440px; }
-  .nm-avatar { width: 84px; height: 84px; }
+  .nm-avatar { width: 132px; height: 168px; }
   .nm-name { font-size: 27px; }
   .nm-link { padding: 17px 20px; }
 }
