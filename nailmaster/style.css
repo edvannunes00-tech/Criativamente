@@ -1,0 +1,302 @@
+/* ============================================================
+   NAIL MASTER — /nailmaster (link na bio do Instagram)
+   Mesmo design system da página /bio da Criativamente.
+   ============================================================ */
+
+:root {
+  --black: #0A0A0A;
+  --white: #F5F5F2;
+  --gray-1: #B8B8B3;
+  --gray-2: #7A7A75;
+  --line: rgba(245, 245, 242, 0.14);
+  --accent: #E6A6C9;
+  --accent-ink: #1A0A12;
+  --font-display: "Montserrat", -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+::selection { background: var(--accent); color: var(--accent-ink); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* fundo animado — leve, sem depender de gif externo */
+.nm-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 50% -10%, rgba(230,166,201,.14), transparent 60%),
+    var(--black);
+}
+.nm-glow {
+  position: absolute;
+  inset: -20%;
+  background: conic-gradient(from 0deg at 50% 50%,
+    rgba(230,166,201,.16), transparent 22%, transparent 50%,
+    rgba(230,166,201,.10), transparent 78%, rgba(230,166,201,.16));
+  animation: nmSpin 26s linear infinite;
+  opacity: .7;
+}
+.nm-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 42px 42px;
+  opacity: .3;
+  mask-image: radial-gradient(80% 60% at 50% 30%, #000 0%, transparent 75%);
+  animation: nmGridDrift 20s linear infinite;
+}
+.nm-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: .45;
+}
+.nm-blob-1 { width: 380px; height: 380px; top: -140px; left: -100px; background: radial-gradient(circle, rgba(230,166,201,.55), transparent 70%); animation: nmFloat1 14s ease-in-out infinite; }
+.nm-blob-2 { width: 320px; height: 320px; bottom: -120px; right: -100px; background: radial-gradient(circle, rgba(230,166,201,.30), transparent 70%); animation: nmFloat2 18s ease-in-out infinite; }
+
+@keyframes nmFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, 36px) scale(1.08); }
+}
+@keyframes nmFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-26px, -32px) scale(1.1); }
+}
+@keyframes nmSpin { to { transform: rotate(360deg); } }
+@keyframes nmGridDrift { to { background-position: 42px 42px; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .nm-blob, .nm-glow, .nm-grid { animation: none; }
+}
+
+/* cartão */
+.nm-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* vídeo de capa — paisagem, sangrando até a borda da tela (full-bleed) */
+.nm-cover {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-top: calc(-1 * min(48px, 6vh));
+  margin-bottom: 26px;
+  aspect-ratio: 16/9;
+  max-height: 46vh;
+  overflow: hidden;
+  background: #111;
+  box-shadow: 0 16px 36px rgba(0,0,0,.5);
+}
+.nm-cover video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.nm-cover::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 45%;
+  background: linear-gradient(0deg, var(--black) 0%, rgba(10,10,10,.55) 45%, transparent 100%);
+  pointer-events: none;
+}
+
+.nm-avatar {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 16px;
+  box-shadow: 0 0 0 3px var(--black), 0 0 0 4px var(--accent), 0 12px 30px rgba(0,0,0,.5);
+}
+
+.nm-name {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  margin: 0 0 8px;
+}
+.nm-name span { color: var(--accent); }
+
+.nm-tag {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--gray-1);
+  margin: 0 0 28px;
+  max-width: 32ch;
+}
+
+.nm-links {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nm-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(245,245,242,.03);
+  backdrop-filter: blur(6px);
+  transition: transform .22s cubic-bezier(.22,1,.36,1), border-color .22s, background .22s;
+}
+.nm-link:hover,
+.nm-link:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  background: rgba(230,166,201,.07);
+}
+
+/* botão personalizado / destaque — curso principal */
+.nm-link.nm-featured {
+  border-color: rgba(230,166,201,.45);
+  background: linear-gradient(135deg, rgba(230,166,201,.14), rgba(230,166,201,.03));
+}
+.nm-link.nm-featured .nm-link-icon {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+/* botão personalizado — arte própria (imagem) em vez de ícone + texto */
+.nm-link-img {
+  display: block;
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 26px rgba(0,0,0,.35);
+  transition: transform .22s cubic-bezier(.22,1,.36,1), box-shadow .22s, border-color .22s;
+}
+.nm-link-img:hover,
+.nm-link-img:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(0,0,0,.45);
+  border-color: var(--accent);
+}
+.nm-link-img img {
+  width: 100%;
+  display: block;
+}
+
+.nm-link-icon {
+  flex: none;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  background: rgba(245,245,242,.05);
+  color: var(--accent);
+}
+
+.nm-link-text {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+.nm-link-text strong {
+  display: block;
+  font-size: 15.5px;
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+.nm-link-text small {
+  display: block;
+  font-size: 12px;
+  color: var(--gray-2);
+  margin-top: 2px;
+  line-height: 1.4;
+}
+
+.nm-link-arrow {
+  flex: none;
+  font-size: 16px;
+  color: var(--gray-2);
+  transition: transform .22s, color .22s;
+}
+.nm-link:hover .nm-link-arrow,
+.nm-link:focus-visible .nm-link-arrow {
+  transform: translateX(3px);
+  color: var(--accent);
+}
+
+/* WhatsApp: CTA isolado, visual diferente dos botões de produto */
+.nm-wa-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 700;
+  font-size: 14.5px;
+  box-shadow: 0 8px 22px rgba(230,166,201,.3);
+  transition: transform .22s cubic-bezier(.22,1,.36,1), box-shadow .22s;
+}
+.nm-wa-cta:hover,
+.nm-wa-cta:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(230,166,201,.4);
+}
+
+.nm-footer {
+  margin-top: 34px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  opacity: .55;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .04em;
+  color: var(--gray-2);
+  transition: opacity .2s ease;
+}
+.nm-footer:hover { opacity: .9; }
+.nm-footer img { display: block; border-radius: 4px; }
+
+@media (min-width: 640px) {
+  .nm-card { max-width: 440px; }
+  .nm-avatar { width: 84px; height: 84px; }
+  .nm-name { font-size: 27px; }
+  .nm-link { padding: 17px 20px; }
+}
