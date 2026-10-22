@@ -114,6 +114,7 @@ a { text-decoration: none; color: inherit; }
   letter-spacing: -.02em;
   margin: 0 0 8px;
 }
+.nm-name-top { margin-top: 4px; }
 .nm-name span { color: var(--accent); }
 
 .nm-tag {
