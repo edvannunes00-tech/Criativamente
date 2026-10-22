@@ -49,49 +49,14 @@ a { text-decoration: none; color: inherit; }
     radial-gradient(120% 90% at 50% -10%, rgba(230,166,201,.14), transparent 60%),
     var(--black);
 }
-.nm-glow {
-  position: absolute;
-  inset: -20%;
-  background: conic-gradient(from 0deg at 50% 50%,
-    rgba(230,166,201,.16), transparent 22%, transparent 50%,
-    rgba(230,166,201,.10), transparent 78%, rgba(230,166,201,.16));
-  animation: nmSpin 26s linear infinite;
-  opacity: .7;
-}
-.nm-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(var(--line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--line) 1px, transparent 1px);
-  background-size: 42px 42px;
-  opacity: .3;
-  mask-image: radial-gradient(80% 60% at 50% 30%, #000 0%, transparent 75%);
-  animation: nmGridDrift 20s linear infinite;
-}
 .nm-blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(70px);
-  opacity: .45;
+  filter: blur(90px);
+  opacity: .22;
 }
-.nm-blob-1 { width: 380px; height: 380px; top: -140px; left: -100px; background: radial-gradient(circle, rgba(230,166,201,.55), transparent 70%); animation: nmFloat1 14s ease-in-out infinite; }
-.nm-blob-2 { width: 320px; height: 320px; bottom: -120px; right: -100px; background: radial-gradient(circle, rgba(230,166,201,.30), transparent 70%); animation: nmFloat2 18s ease-in-out infinite; }
-
-@keyframes nmFloat1 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(30px, 36px) scale(1.08); }
-}
-@keyframes nmFloat2 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-26px, -32px) scale(1.1); }
-}
-@keyframes nmSpin { to { transform: rotate(360deg); } }
-@keyframes nmGridDrift { to { background-position: 42px 42px; } }
-
-@media (prefers-reduced-motion: reduce) {
-  .nm-blob, .nm-glow, .nm-grid { animation: none; }
-}
+.nm-blob-1 { width: 380px; height: 380px; top: -160px; left: -120px; background: radial-gradient(circle, rgba(230,166,201,.5), transparent 70%); }
+.nm-blob-2 { width: 320px; height: 320px; bottom: -140px; right: -120px; background: radial-gradient(circle, rgba(230,166,201,.3), transparent 70%); }
 
 /* cartão */
 .nm-card {
